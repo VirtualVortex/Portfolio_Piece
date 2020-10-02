@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
+    [HideInInspector]
+    public Vector3 pos;
+
     MasterClass master;
 
     // Start is called before the first frame update
@@ -21,10 +24,14 @@ public class PlayerMovement : MonoBehaviour
     void Movement()
     {
         float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
 
-        Vector3 pos = transform.right * x;
+        pos = transform.right * x;
         pos *= speed;
         pos.y = master.rb.velocity.y;
+
+        if (master.climbing.climbing)
+            pos = transform.up * y * speed;
 
         if (x > 0)
             master.sr.flipX = false;

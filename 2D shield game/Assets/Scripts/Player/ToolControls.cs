@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ToolControls : MonoBehaviour
 {
+    [SerializeField]
+    float maxDist;
     public Transform tool;
 
     // Start is called before the first frame update
@@ -15,7 +17,16 @@ public class ToolControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float angle = Mathf.Atan2(Input.mousePosition.y, Input.mousePosition.x) * Mathf.Rad2Deg;
-        tool.rotation = Quaternion.Euler(0,0,angle);
+        movement();
+    }
+
+    void movement()
+    {
+        Vector2 mousePos = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        float dist = Vector2.Distance(mousePos, transform.position);
+
+        if (dist < maxDist)
+            tool.position = mousePos;
+
     }
 }
