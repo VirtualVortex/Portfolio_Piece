@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3874f4b1b24ebb449d79020b22d0122, type: 3}
+  m_Name: Player_Walking 1
+  m_EditorClassIdentifier: 
+  stateName: Player_Walking
+  paramaterName: isWalking
+  paramaterBool: 0
+  paramaterValue: 1
+  anim: {fileID: 6351497284448701290, guid: 8b57da08fc2e6a449b4796ec3035265a, type: 3}
