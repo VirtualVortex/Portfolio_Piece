@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ToolControls : MonoBehaviour
 {
+    public Transform tool;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,7 @@ public class ToolControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        float angle = Mathf.Atan2(Input.mousePosition.y, Input.mousePosition.x) * Mathf.Rad2Deg;
+        tool.rotation = Quaternion.Euler(0,0,angle);
     }
 }
