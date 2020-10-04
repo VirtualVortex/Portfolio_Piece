@@ -2300,7 +2300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDist: 2
-  tool: {fileID: 2091453685}
+  tool: {fileID: 0}
 --- !u!114 &1579557923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2570,9 +2570,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b57da08fc2e6a449b4796ec3035265a, type: 3}
---- !u!4 &2091453685 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 755276697735256877, guid: 8b57da08fc2e6a449b4796ec3035265a,
-    type: 3}
-  m_PrefabInstance: {fileID: 2091453684}
-  m_PrefabAsset: {fileID: 0}
