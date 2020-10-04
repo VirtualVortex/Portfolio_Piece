@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dagger : Weapon
+public class Shield : Weapon
 {
-    [SerializeField]
-    float damage;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -17,14 +14,11 @@ public class Dagger : Weapon
     public override void Update()
     {
         base.Update();
-        movement();   
+        movement();
     }
 
-    public override void OnTriggerEnter2D(Collider2D other)
+    public virtual void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.name);
-
-        if (other.tag.Contains("Enemy"))
-            other.GetComponent<Health>().ReduceHealth(damage);
+        
     }
 }

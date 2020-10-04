@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         pos.y = master.rb.velocity.y;
 
         if (master.climbing.climbing)
-            pos = transform.up * y * speed;
+            pos = transform.right * x + transform.up * y * speed;
 
         if (x > 0)
             master.sr.flipX = false;

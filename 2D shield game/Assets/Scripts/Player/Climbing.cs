@@ -8,11 +8,12 @@ public class Climbing : MonoBehaviour
     public bool climbing;
 
     bool canClimb;
+    MasterClass master;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        master = MasterClass.inst;
     }
 
     // Update is called once per frame
@@ -25,7 +26,17 @@ public class Climbing : MonoBehaviour
         else if (!canClimb)
             climbing = false;
 
+        if (Input.GetKeyUp(KeyCode.W))
+            RBFreezeConstraints();
         
+
+        
+    }
+
+    void RBFreezeConstraints()
+    {
+        master.rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+        master.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
