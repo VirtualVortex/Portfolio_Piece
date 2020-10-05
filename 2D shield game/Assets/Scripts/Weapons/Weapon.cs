@@ -21,11 +21,17 @@ public class Weapon : MonoBehaviour
 
     public virtual void movement()
     {
-        Vector2 mousePos = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePos = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = -1;
         float dist = Vector2.Distance(mousePos, player.transform.position);
 
         if (dist < maxDist)
             transform.position = mousePos;
+    }
+
+    private void OnEnable()
+    {
+        transform.position = player.transform.position;
     }
 
     public virtual void OnTriggerEnter2D(Collider2D other)

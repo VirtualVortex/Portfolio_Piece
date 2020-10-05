@@ -9,15 +9,18 @@ public class CameraControls : MonoBehaviour
     [SerializeField]
     Transform player;
 
+    Vector3 pos;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        pos = cam.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        cam.position = player.up + cam.up;
+        pos.y = player.position.y + 3;
+        cam.position = pos;
     }
 }
