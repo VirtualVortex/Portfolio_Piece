@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [HideInInspector]
     public GameObject player;
+
     public float maxDist;
 
+    [HideInInspector]
+    public MasterClass master;
+
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
-        
+        master = MasterClass.inst;
+        player = master.player;
+        transform.position = player.transform.position;
     }
 
     // Update is called once per frame
@@ -31,7 +38,7 @@ public class Weapon : MonoBehaviour
 
     private void OnEnable()
     {
-        transform.position = player.transform.position;
+        
     }
 
     public virtual void OnTriggerEnter2D(Collider2D other)

@@ -6,7 +6,8 @@ public class MasterClass : MonoBehaviour
 {
     public static MasterClass inst;
 
-    GameObject player;
+    [HideInInspector]
+    public GameObject player;
 
     [HideInInspector]
     public Rigidbody2D rb;
