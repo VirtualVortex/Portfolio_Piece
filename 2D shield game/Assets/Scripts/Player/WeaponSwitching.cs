@@ -28,6 +28,11 @@ public class WeaponSwitching : MonoBehaviour
     void WeaponPicker(float scrollData)
     {
         i += scrollData;
-        Instantiate(weapons[(int)i-1], transform.position, Quaternion.identity);
+        for (int j = 0; j < weapons.Length + 1; j++)
+        {
+            if (j == i)
+                weapons[(int)j - 1].SetActive(true);
+            
+        }
     }
 }

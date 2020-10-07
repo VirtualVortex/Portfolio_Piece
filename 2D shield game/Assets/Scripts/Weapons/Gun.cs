@@ -24,10 +24,10 @@ public class Gun : Weapon
     public override void movement()
     {
         base.movement();
+        Vector3 dir = transform.position - player.transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-        float angle = Mathf.Atan2(player.transform.position.x, transform.position.y) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.EulerAngles(0,0,angle * 0.1f);
+        transform.rotation = Quaternion.Euler(0,0,angle);
     }
 
     void Fire()
