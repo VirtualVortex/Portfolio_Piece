@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Gun : Weapon
 {
+    [SerializeField]
+    float maxAmmo;
+
+    public float curAmmo;
+
     // Start is called before the first frame update
     public override void Start()
     {
+        curAmmo = maxAmmo;
         base.Start();
     }
 
@@ -33,7 +39,7 @@ public class Gun : Weapon
     void Fire()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, Mathf.Infinity);
-
+        curAmmo -= 1;
         Debug.Log(hit.transform.tag);
     }
 }

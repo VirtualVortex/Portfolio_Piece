@@ -98,6 +98,8 @@ MonoBehaviour:
   player: {fileID: 0}
   maxDist: 3
   master: {fileID: 0}
+  maxAmmo: 5
+  curAmmo: 0
 --- !u!61 &1896371638871905051
 BoxCollider2D:
   m_ObjectHideFlags: 0
