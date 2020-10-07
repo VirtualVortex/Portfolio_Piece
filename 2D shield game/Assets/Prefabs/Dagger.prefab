@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  maxDist: 3
+  maxDist: 2.5
   master: {fileID: 0}
   damage: 1
 --- !u!61 &1167244005230472658

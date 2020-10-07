@@ -17,7 +17,7 @@ public class Weapon : MonoBehaviour
     {
         master = MasterClass.inst;
         player = master.player;
-        transform.position = player.transform.position;
+        transform.position = (Vector2)player.transform.position;
     }
 
     // Update is called once per frame
@@ -34,6 +34,8 @@ public class Weapon : MonoBehaviour
 
         if (dist < maxDist)
             transform.position = mousePos;
+        else if (dist > maxDist)
+            transform.position = (Vector2)player.transform.position;
     }
 
     private void OnEnable()

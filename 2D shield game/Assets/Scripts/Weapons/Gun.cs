@@ -7,12 +7,17 @@ public class Gun : Weapon
     [SerializeField]
     float maxAmmo;
 
-    public float curAmmo;
+    public float damage;
+
+    LineRenderer lr;
+    float curAmmo;
+    RaycastHit2D hit;
 
     // Start is called before the first frame update
     public override void Start()
     {
         curAmmo = maxAmmo;
+        lr = GetComponent<LineRenderer>();
         base.Start();
     }
 
@@ -21,6 +26,9 @@ public class Gun : Weapon
     {
         base.Update();
 
+        hit = Physics2D.Raycast(transform.position, transform.right, Mathf.Infinity);
+
+        LaserPointer();
         movement();
 
         if (Input.GetMouseButtonDown(0))
@@ -38,8 +46,13 @@ public class Gun : Weapon
 
     void Fire()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, Mathf.Infinity);
+        hit.transform.GetComponent<Health>().ReduceHealth(damage);
         curAmmo -= 1;
-        Debug.Log(hit.transform.tag);
+    }
+
+    void LaserPointer()
+    {
+        lr.SetPosition(0, transform.position);
+        lr.SetPosition(1, hit.point);
     }
 }
