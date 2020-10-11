@@ -5,13 +5,16 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed;
+    public Animator anim;
 
     [HideInInspector]
     public enum States {Idle, Attack};
     [HideInInspector]
     public States states;
     [HideInInspector]
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
+    [HideInInspector]
+    public AnimationManager am;
     [HideInInspector]
     bool completeAction;
 
@@ -19,6 +22,7 @@ public class Enemy : MonoBehaviour
     public virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        am = AnimationManager.animManager;
     }
 
     // Update is called once per frame
@@ -43,11 +47,9 @@ public class Enemy : MonoBehaviour
 
     public virtual void Idle()
     {
-
     }
 
     public virtual void Move()
     {
-
     }
 }

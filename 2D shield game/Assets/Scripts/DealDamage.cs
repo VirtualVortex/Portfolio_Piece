@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DealDamage : MonoBehaviour
 {
+    [SerializeField]
+    float damage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,10 @@ public class DealDamage : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision.transform.name);
     }
 }

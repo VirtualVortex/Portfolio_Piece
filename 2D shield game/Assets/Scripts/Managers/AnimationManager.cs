@@ -10,7 +10,7 @@ public class AnimationManager : MonoBehaviour
 
     private void Awake() => animManager = this;
 
-    public void Animation(string name, float value, bool action)
+    public void Animation(string name)
     {
         foreach (AnimationState state in states)
             if (state.stateName == name)
