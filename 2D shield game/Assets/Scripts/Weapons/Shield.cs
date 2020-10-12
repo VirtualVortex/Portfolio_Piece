@@ -30,15 +30,10 @@ public class Shield : Weapon
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        ContactPoint2D[] contacts = new ContactPoint2D[10];
 
-        if (collision.transform.tag.Contains("Enemy"))
+        if (collision.transform.tag.Contains("Damage"))
         {
-            collision.GetContacts(contacts);
-            Vector2 inDirection = collision.transform.GetComponent<Rigidbody2D>().velocity;
-            Vector2 inNormal = (inDirection - contacts[0].point).normalized;
-
-            collision.transform.position = Vector2.Reflect(inDirection, inNormal);
+            Destroy(collision.gameObject);
         }
     }
 }

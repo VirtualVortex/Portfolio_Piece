@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed;
-    public Animator anim;
+    public float coolDown;
 
     [HideInInspector]
     public enum States {Idle, Attack};
@@ -51,5 +51,10 @@ public class Enemy : MonoBehaviour
 
     public virtual void Move()
     {
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
     }
 }
