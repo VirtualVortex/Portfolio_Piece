@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Eyebat : Enemy
 {
-    
-
     GameObject player;
     bool runAction;
     float timer;
@@ -58,6 +56,12 @@ public class Eyebat : Enemy
         Vector2 dir = player.transform.position - transform.position;
         rb.AddForce(dir * speed, ForceMode2D.Impulse);
         timer = Time.time + coolDown;
+    }
+
+    public override void Stunned()
+    {
+        am.Animation("Eyebat_Stunned");
+        timer = Time.time + 5;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

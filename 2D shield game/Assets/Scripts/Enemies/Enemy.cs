@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public float coolDown;
 
     [HideInInspector]
-    public enum States {Idle, Attack};
+    public enum States {Idle, Attack, Stunned};
     [HideInInspector]
     public States states;
     [HideInInspector]
@@ -50,6 +50,10 @@ public class Enemy : MonoBehaviour
     }
 
     public virtual void Move()
+    {
+    }
+
+    public virtual void Stunned()
     {
     }
 
