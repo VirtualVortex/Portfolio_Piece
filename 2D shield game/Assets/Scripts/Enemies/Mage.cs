@@ -8,6 +8,8 @@ public class Mage : Enemy
     GameObject energyball;
     [SerializeField]
     float projectileSpeed;
+    [SerializeField]
+    Transform raycastPos;
 
     GameObject player;
     bool runAction;
@@ -21,7 +23,6 @@ public class Mage : Enemy
         player = GameObject.Find("Player");
         timer = Time.time + coolDown;
         behvaiour(States.Idle);
-
     }
 
     // Update is called once per frame
@@ -39,6 +40,16 @@ public class Mage : Enemy
                 i = 0;
             }
         }
+        else
+            behvaiour(States.Idle);
+
+        RaycastHit2D hit = Physics2D.Raycast(raycastPos.position, -raycastPos.up);
+
+        if (hit.distance > 5)
+            if (transform.eulerAngles.y == 0)
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+            else if (transform.eulerAngles.y == 180)
+                transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     public override void behvaiour(States state)
@@ -63,19 +74,17 @@ public class Mage : Enemy
         am.Animation("Mage_Attack");
         Vector2 dir = player.transform.position - transform.position;
         dir.x += Random.Range(-5, 5);
-        GameObject inst = Instantiate(energyball, transform.position + (transform.forward * -1), Quaternion.identity);
+        GameObject inst = Instantiate(energyball, transform.position - transform.forward, Quaternion.identity);
         inst.GetComponent<Rigidbody2D>().AddForce(dir * projectileSpeed, ForceMode2D.Impulse);
+        Destroy(inst, 5);
         i++;
         //Add inst to pooling manager
     }
 
     public override void Move()
     {
-        Debug.Log("Move");
         am.Animation("Mage_Idle");
-        Vector2 dir = player.transform.position - transform.position;
-        rb.AddForce(dir * speed, ForceMode2D.Impulse);
-        
+        rb.velocity = transform.right;
     }
     
 }
