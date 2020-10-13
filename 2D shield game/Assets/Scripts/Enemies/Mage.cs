@@ -6,10 +6,13 @@ public class Mage : Enemy
 {
     [SerializeField]
     GameObject energyball;
+    [SerializeField]
+    float projectileSpeed;
 
     GameObject player;
     bool runAction;
     float timer;
+    int i;
 
     // Start is called before the first frame update
     public override void Start()
@@ -26,8 +29,16 @@ public class Mage : Enemy
     {
         float dist = Vector2.Distance(player.transform.position, transform.position);
 
-        if (dist < 15 && Time.time > timer)
+        if (dist < 8 && Time.time > timer)
+        {
             behvaiour(States.Attack);
+
+            if (i > 100)
+            {
+                timer = Time.time + coolDown;
+                i = 0;
+            }
+        }
     }
 
     public override void behvaiour(States state)
@@ -51,8 +62,10 @@ public class Mage : Enemy
     {
         am.Animation("Mage_Attack");
         Vector2 dir = player.transform.position - transform.position;
-        GameObject inst = Instantiate(energyball, transform.position, Quaternion.identity);
-        inst.GetComponent<Rigidbody2D>().AddForce(dir, ForceMode2D.Impulse);
+        dir.x += Random.Range(-5, 5);
+        GameObject inst = Instantiate(energyball, transform.position + (transform.forward * -1), Quaternion.identity);
+        inst.GetComponent<Rigidbody2D>().AddForce(dir * projectileSpeed, ForceMode2D.Impulse);
+        i++;
         //Add inst to pooling manager
     }
 
@@ -62,7 +75,7 @@ public class Mage : Enemy
         am.Animation("Mage_Idle");
         Vector2 dir = player.transform.position - transform.position;
         rb.AddForce(dir * speed, ForceMode2D.Impulse);
-        timer = Time.time + coolDown;
+        
     }
     
 }

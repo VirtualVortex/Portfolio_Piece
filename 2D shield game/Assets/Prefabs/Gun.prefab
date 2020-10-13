@@ -99,6 +99,9 @@ MonoBehaviour:
   player: {fileID: 0}
   maxDist: 2.5
   master: {fileID: 0}
+  layer:
+    serializedVersion: 2
+    m_Bits: 1024
   maxAmmo: 5
   damage: 2
 --- !u!61 &1896371638871905051

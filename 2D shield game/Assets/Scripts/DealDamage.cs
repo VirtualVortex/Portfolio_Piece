@@ -24,4 +24,10 @@ public class DealDamage : MonoBehaviour
         if (collision.transform.tag.Contains("Player"))
             collision.transform.GetComponent<Health>().ReduceHealth(damage);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag.Contains("Player"))
+            collision.GetComponent<Health>().ReduceHealth(damage);
+    }
 }

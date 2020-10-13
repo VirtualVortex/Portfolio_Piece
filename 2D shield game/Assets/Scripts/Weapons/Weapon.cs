@@ -34,8 +34,8 @@ public class Weapon : MonoBehaviour
 
         if (dist < maxDist)
             transform.position = mousePos;
-        else if (dist > maxDist)
-            transform.position = (Vector2)player.transform.position;
+        /*else if (dist > maxDist)
+            transform.position = (Vector2)player.transform.position;*/
     }
 
     private void OnEnable()

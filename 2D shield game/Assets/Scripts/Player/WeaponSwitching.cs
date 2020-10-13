@@ -8,6 +8,8 @@ public class WeaponSwitching : MonoBehaviour
     GameObject[] weapons;
     [SerializeField]
     Transform player;
+    [SerializeField]
+    float sensitivty;
 
     float i;
     LineRenderer lr;
@@ -25,7 +27,7 @@ public class WeaponSwitching : MonoBehaviour
         lr.SetPosition(0, player.transform.position + new Vector3(0,0,1));
         lr.SetPosition(1, weapons[(int)i].transform.position);
 
-        float scrollData = Input.mouseScrollDelta.y;
+        float scrollData = Input.mouseScrollDelta.y * sensitivty;
         if (scrollData != 0.0f)
             WeaponPicker(scrollData);
     }
