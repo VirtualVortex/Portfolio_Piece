@@ -12,7 +12,7 @@ public class Gun : Weapon
     LineRenderer lr;
     float curAmmo;
     RaycastHit2D hit;
-
+    
     // Start is called before the first frame update
     public override void Start()
     {

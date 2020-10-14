@@ -33,4 +33,9 @@ public class SceneChanger : MonoBehaviour
         i += 1;
         SceneManager.LoadScene(i);
     }
+
+    void GoToBegining()
+    {
+        SceneManager.LoadScene(0);
+    } 
 }

@@ -11,8 +11,7 @@ public class Weapon : MonoBehaviour
 
     [HideInInspector]
     public MasterClass master;
-
-    private void Awake() => DontDestroyOnLoad(this.gameObject);
+    
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -20,6 +19,7 @@ public class Weapon : MonoBehaviour
         master = MasterClass.inst;
         player = master.player;
         transform.position = (Vector2)player.transform.position;
+        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
