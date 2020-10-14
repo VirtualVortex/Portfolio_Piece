@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManager : MonoBehaviour
+public class SceneChanger : MonoBehaviour
 {
     public float currentScene;
+    public static SceneChanger inst;
 
-    public static SceneManager sm;
+    int i;
 
-    private void Awake() => sm = this;
-
+    private void Awake()
+    {
+        inst = this;
+        DontDestroyOnLoad(this.gameObject);
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +26,11 @@ public class SceneManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ChangeScene()
+    {
+        i += 1;
+        SceneManager.LoadScene(i);
     }
 }

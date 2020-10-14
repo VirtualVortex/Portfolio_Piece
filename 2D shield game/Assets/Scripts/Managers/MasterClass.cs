@@ -7,16 +7,18 @@ public class MasterClass : MonoBehaviour
     public static MasterClass inst;
 
     [HideInInspector]
-    public GameObject player;
+    public GameObject player { get; private set; }
 
     [HideInInspector]
-    public Rigidbody2D rb;
+    public Rigidbody2D rb { get; private set; }
     [HideInInspector]
-    public SpriteRenderer sr;
+    public SpriteRenderer sr { get; private set; }
     [HideInInspector]
-    public PlayerMovement pm;
+    public PlayerMovement pm { get; private set; }
     [HideInInspector]
-    public Climbing climbing;
+    public Climbing climbing { get; private set; }
+    [SerializeField]
+    public Health health { get; private set; }
 
     private void Awake() => inst = this;
 
@@ -28,5 +30,6 @@ public class MasterClass : MonoBehaviour
         sr = player.GetComponent<SpriteRenderer>();
         pm = player.GetComponent<PlayerMovement>();
         climbing = player.GetComponent<Climbing>();
+        health = player.GetComponent<Health>();
     }
 }

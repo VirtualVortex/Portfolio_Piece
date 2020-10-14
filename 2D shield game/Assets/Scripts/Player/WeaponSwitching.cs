@@ -1,30 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponSwitching : MonoBehaviour
 {
     [SerializeField]
     GameObject[] weapons;
     [SerializeField]
-    Transform player;
-    [SerializeField]
     float sensitivty;
 
     float i;
     LineRenderer lr;
+    MasterClass master;
 
     // Start is called before the first frame update
     void Start()
     {
         WeaponPicker(0);
         lr = GetComponent<LineRenderer>();
+        master = MasterClass.inst;
     }
 
     // Update is called once per frame
     void Update()
     {
-        lr.SetPosition(0, player.transform.position + new Vector3(0,0,1));
+        lr.SetPosition(0, master.player.transform.position + new Vector3(0,0,1));
         lr.SetPosition(1, weapons[(int)i].transform.position);
 
         float scrollData = Input.mouseScrollDelta.y * sensitivty;

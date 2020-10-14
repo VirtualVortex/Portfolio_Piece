@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
@@ -10,19 +11,29 @@ public class Health : MonoBehaviour
     float delay;
     [SerializeField]
     float currentHealth;
+    [SerializeField]
+    bool useUI;
+    [SerializeField]
+    Image healthBar;
 
     SpriteRenderer sr;
     bool canDamage;
     float timer;
     Color color;
+    float x;
+    Vector3 startPos;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (!useUI)
+            healthBar = null;
         currentHealth = maxHealth;
         sr = GetComponent<SpriteRenderer>();
         color = new Color(255,255,255);
         color.a = 1;
+        x = 1;
+        startPos = transform.position;
     }
 
     // Update is called once per frame
@@ -33,8 +44,20 @@ public class Health : MonoBehaviour
         if (Time.time > timer)
             canDamage = true;
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && transform.name.Contains("Player"))
+        {
+            transform.position = startPos;
+            currentHealth = maxHealth;
+        }
+        else if (currentHealth <= 0 && !transform.name.Contains("Player"))
             Destroy(gameObject);
+
+        if (useUI)
+        {
+            x = Mathf.InverseLerp(0, maxHealth, currentHealth);
+            healthBar.transform.localScale = new Vector3(x, 1, 1);
+        }
+        
     }
 
     public void ReduceHealth(float damage)

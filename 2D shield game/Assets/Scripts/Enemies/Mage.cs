@@ -71,6 +71,7 @@ public class Mage : Enemy
 
     void Attack()
     {
+        rb.velocity = Vector2.zero;
         am.Animation("Mage_Attack");
         Vector2 dir = player.transform.position - transform.position;
         dir.x += Random.Range(-5, 5);

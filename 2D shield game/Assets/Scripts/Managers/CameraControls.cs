@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class CameraControls : MonoBehaviour
 {
-    [SerializeField]
     Transform cam;
-    [SerializeField]
     Transform player;
-
+    MasterClass master;
     Vector3 pos;
 
     // Start is called before the first frame update
     void Start()
     {
+        master = MasterClass.inst;
+        cam = Camera.main.transform;
+        player = master.player.transform;
         pos = cam.position;
     }
 

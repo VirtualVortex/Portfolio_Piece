@@ -12,6 +12,8 @@ public class Weapon : MonoBehaviour
     [HideInInspector]
     public MasterClass master;
 
+    private void Awake() => DontDestroyOnLoad(this.gameObject);
+
     // Start is called before the first frame update
     public virtual void Start()
     {
