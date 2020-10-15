@@ -1,23 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun : Weapon
 {
     [SerializeField]
     float maxAmmo;
+    [SerializeReference]
+    Image ammoBar;
 
     public float damage;
 
     LineRenderer lr;
     float curAmmo;
     RaycastHit2D hit;
+    float x;
     
     // Start is called before the first frame update
     public override void Start()
     {
         curAmmo = maxAmmo;
         lr = GetComponent<LineRenderer>();
+        x = 1;
         base.Start();
     }
 
@@ -31,7 +36,7 @@ public class Gun : Weapon
         LaserPointer();
         movement();
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && curAmmo > 0)
             Fire();
     }
 
@@ -46,8 +51,12 @@ public class Gun : Weapon
 
     void Fire()
     {
-        hit.transform.GetComponent<Health>().ReduceHealth(damage);
+        if(hit.transform.GetComponent<Health>())
+            hit.transform.GetComponent<Health>().ReduceHealth(damage);
         curAmmo -= 1;
+
+        x = Mathf.InverseLerp(0, maxAmmo, curAmmo);
+        ammoBar.transform.localScale = new Vector3(x, 1, 1);
     }
 
     void LaserPointer()

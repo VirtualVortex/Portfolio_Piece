@@ -19,7 +19,6 @@ public class Weapon : MonoBehaviour
         master = MasterClass.inst;
         player = master.player;
         transform.position = (Vector2)player.transform.position;
-        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame

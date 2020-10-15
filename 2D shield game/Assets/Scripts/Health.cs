@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
     Image healthBar;
 
     SpriteRenderer sr;
+    SceneChanger sc;
     bool canDamage;
     float timer;
     Color color;
@@ -30,6 +31,7 @@ public class Health : MonoBehaviour
             healthBar = null;
         currentHealth = maxHealth;
         sr = GetComponent<SpriteRenderer>();
+        sc = SceneChanger.inst;
         color = new Color(255,255,255);
         color.a = 1;
         x = 1;
@@ -46,6 +48,7 @@ public class Health : MonoBehaviour
 
         if (currentHealth <= 0 && transform.name.Contains("Player"))
         {
+            sc.GoToBegining();
             transform.position = startPos;
             currentHealth = maxHealth;
         }

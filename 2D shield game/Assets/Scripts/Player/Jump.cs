@@ -16,7 +16,11 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up);
+
+        Debug.Log(hit.distance);
+
+        if (Input.GetKeyDown(KeyCode.Space) && hit.distance < 0.6f)
             master.rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
 }

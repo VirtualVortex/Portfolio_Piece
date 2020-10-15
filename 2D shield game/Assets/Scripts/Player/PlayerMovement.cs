@@ -9,11 +9,13 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 pos;
 
     MasterClass master;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         master = MasterClass.inst;
+        anim = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -32,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (master.climbing.climbing)
             pos = transform.right * x + transform.up * y * speed;
+
+        anim.SetFloat("isWalking", Mathf.Abs(x));
 
         if (x > 0)
             master.sr.flipX = false;

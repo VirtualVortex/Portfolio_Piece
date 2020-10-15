@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8341160052568070104}
   - component: {fileID: 8341160052568070105}
   - component: {fileID: 8341160052568070111}
-  - component: {fileID: 8341160052568070110}
   - component: {fileID: 8341160052568070109}
   - component: {fileID: 8341160052568070108}
   - component: {fileID: 8341160052568070051}
@@ -60,20 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a9a34a6a2f623419769b7c7dba4735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  states: []
---- !u!114 &8341160052568070110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8341160052568070106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25c8251fbee40894d9dfc4c5fbc7f460, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentScene: 0
+  states:
+  - {fileID: 11400000, guid: 5b664493f02db0347b0b5e2221a0b8a6, type: 2}
+  - {fileID: 11400000, guid: f1194a19d814f1741b72d4a6112c5342, type: 2}
 --- !u!114 &8341160052568070109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,8 +74,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ddff4b7744b5af4d881ccb48d9e5d9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  player: {fileID: 0}
 --- !u!114 &8341160052568070108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +90,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  player: {fileID: 0}
   sensitivty: 1
 --- !u!120 &8341160052568070051
 LineRenderer:

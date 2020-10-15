@@ -12,7 +12,12 @@ public class SceneChanger : MonoBehaviour
 
     private void Awake()
     {
-        inst = this;
+        //Singleton
+        if(inst == null)
+            inst = this;
+        else if(inst != this)
+            Destroy(FindObjectOfType<SceneChanger>().gameObject);
+
         DontDestroyOnLoad(this.gameObject);
     }
     
@@ -34,7 +39,7 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene(i);
     }
 
-    void GoToBegining()
+    public void GoToBegining()
     {
         SceneManager.LoadScene(0);
     } 
