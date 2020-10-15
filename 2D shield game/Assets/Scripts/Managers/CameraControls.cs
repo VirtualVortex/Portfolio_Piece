@@ -9,11 +9,15 @@ public class CameraControls : MonoBehaviour
     MasterClass master;
     Vector3 pos;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         master = MasterClass.inst;
         cam = Camera.main.transform;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
         player = master.player.transform;
         pos = cam.position;
     }
