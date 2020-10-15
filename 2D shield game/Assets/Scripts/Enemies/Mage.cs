@@ -13,8 +13,8 @@ public class Mage : Enemy
 
     GameObject player;
     bool runAction;
-    float timer;
     int i;
+    bool isStunned;
 
     // Start is called before the first frame update
     public override void Start()
@@ -40,7 +40,7 @@ public class Mage : Enemy
                 i = 0;
             }
         }
-        else
+        else if(!isStunned)
             behvaiour(States.Idle);
 
         RaycastHit2D hit = Physics2D.Raycast(raycastPos.position, -raycastPos.up);
@@ -50,6 +50,10 @@ public class Mage : Enemy
                 transform.rotation = Quaternion.Euler(0, 180, 0);
             else if (transform.eulerAngles.y == 180)
                 transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        if (isStunned && Time.time > timer)
+            behvaiour(States.Idle);
+
     }
 
     public override void behvaiour(States state)
@@ -62,6 +66,9 @@ public class Mage : Enemy
                 break;
             case States.Attack:
                 Attack();
+                break;
+            case States.Stunned:
+                Stunned();
                 break;
             default:
                 Idle();
@@ -86,6 +93,18 @@ public class Mage : Enemy
     {
         am.Animation("Mage_Idle");
         rb.velocity = transform.right;
+
+        
     }
-    
+
+    public override void Stunned()
+    {
+        isStunned = true;
+        base.Stunned();
+    }
+
+    public override void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+    }
 }

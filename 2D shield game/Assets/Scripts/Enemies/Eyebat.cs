@@ -6,7 +6,6 @@ public class Eyebat : Enemy
 {
     GameObject player;
     bool runAction;
-    float timer;
 
     // Start is called before the first frame update
     public override void Start()
@@ -37,6 +36,9 @@ public class Eyebat : Enemy
             case States.Attack:
                 Move();
                 break;
+            case States.Stunned:
+                Stunned();
+                break;
             default:
                 Idle();
                 break;
@@ -57,19 +59,9 @@ public class Eyebat : Enemy
         rb.AddForce(dir * speed, ForceMode2D.Impulse);
         timer = Time.time + coolDown;
     }
-
-    public override void Stunned()
+    
+    public override void OnTriggerEnter2D(Collider2D collision)
     {
-        am.Animation("Eyebat_Stunned");
-        timer = Time.time + 5;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.name.Contains("Shield"))
-        {
-            rb.velocity = Vector2.zero;
-            behvaiour(States.Idle);
-        }
+        base.OnTriggerEnter2D(collision);
     }
 }

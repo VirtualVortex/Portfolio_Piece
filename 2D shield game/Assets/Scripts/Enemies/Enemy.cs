@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
     public AnimationManager am;
     [HideInInspector]
     bool completeAction;
+    [HideInInspector]
+    public float timer;
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -40,7 +42,6 @@ public class Enemy : MonoBehaviour
             case States.Attack:
                 break;
             default:
-
                 break;
         }
     }
@@ -55,10 +56,17 @@ public class Enemy : MonoBehaviour
 
     public virtual void Stunned()
     {
+        Debug.Log(transform.name + ": Stunned");
+        timer = Time.time + 5;
+        rb.velocity = Vector2.zero;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.name.Contains("Shield"))
+        {
+            
+            behvaiour(States.Stunned);
+        }
     }
 }

@@ -20,11 +20,10 @@ public class MasterClass : MonoBehaviour
     [SerializeField]
     public Health health { get; private set; }
 
-    private void Awake() => inst = this;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        inst = this;
+
         player = GameObject.Find("Player");
         rb = player.GetComponent<Rigidbody2D>();
         sr = player.GetComponent<SpriteRenderer>();
@@ -32,4 +31,6 @@ public class MasterClass : MonoBehaviour
         climbing = player.GetComponent<Climbing>();
         health = player.GetComponent<Health>();
     }
+
+    
 }

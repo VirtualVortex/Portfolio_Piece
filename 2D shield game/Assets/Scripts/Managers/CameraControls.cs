@@ -11,13 +11,15 @@ public class CameraControls : MonoBehaviour
 
     private void Awake()
     {
-        master = MasterClass.inst;
-        cam = Camera.main.transform;
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        master = MasterClass.inst;
+        cam = Camera.main.transform;
+
         player = master.player.transform;
         pos = cam.position;
     }
