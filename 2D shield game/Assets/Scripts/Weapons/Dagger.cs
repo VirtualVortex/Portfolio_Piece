@@ -20,6 +20,15 @@ public class Dagger : Weapon
         movement();   
     }
 
+    public override void movement()
+    {
+        base.movement();
+        Vector3 dir = transform.position - player.transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
     public override void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.name);
