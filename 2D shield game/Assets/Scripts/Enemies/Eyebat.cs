@@ -34,7 +34,7 @@ public class Eyebat : Enemy
                 Idle();
                 break;
             case States.Attack:
-                Move();
+                anim.SetBool("canAttack", true);
                 break;
             case States.Stunned:
                 Stunned();
@@ -48,13 +48,12 @@ public class Eyebat : Enemy
     public override void Idle()
     {
         Debug.Log("Idle");
-        am.Animation("Eyebat_Idle");
+        anim.SetBool("canAttack", false);
     }
 
     public override void Move()
     {
         Debug.Log("Move");
-        am.Animation("Eyebat_Move");
         Vector2 dir = player.transform.position - transform.position;
         rb.AddForce(dir * speed, ForceMode2D.Impulse);
         timer = Time.time + coolDown;

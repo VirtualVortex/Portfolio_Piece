@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 8809548082124957541}
   - component: {fileID: 8809548082124957538}
   - component: {fileID: 8809548082124957540}
+  - component: {fileID: 1240447432}
   m_Layer: 10
   m_Name: Mage
   m_TagString: Enemy
@@ -180,6 +181,7 @@ MonoBehaviour:
   states: 0
   rb: {fileID: 0}
   am: {fileID: 0}
+  timer: 0
   energyball: {fileID: 2176194533949271640, guid: ff4d69b3ecfed3448b9a7b8b2fc8cda9,
     type: 3}
   projectileSpeed: 0.5
@@ -199,3 +201,24 @@ MonoBehaviour:
   maxHealth: 3
   delay: 0
   currentHealth: 0
+  useUI: 0
+  healthBar: {fileID: 0}
+--- !u!95 &1240447432
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8809548082124957537}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4e8f7bb069fcc654ba26666cbd888637, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

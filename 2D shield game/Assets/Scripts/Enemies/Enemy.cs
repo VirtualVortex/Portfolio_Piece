@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public Rigidbody2D rb;
     [HideInInspector]
-    public AnimationManager am;
+    public Animator anim;
     [HideInInspector]
     bool completeAction;
     [HideInInspector]
@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     public virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        am = AnimationManager.animManager;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame

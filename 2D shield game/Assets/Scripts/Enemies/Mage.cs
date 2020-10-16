@@ -20,6 +20,7 @@ public class Mage : Enemy
     public override void Start()
     {
         base.Start();
+        anim = GetComponent<Animator>();
         player = GameObject.Find("Player");
         timer = Time.time + coolDown;
         behvaiour(States.Idle);
@@ -30,16 +31,8 @@ public class Mage : Enemy
     {
         float dist = Vector2.Distance(player.transform.position, transform.position);
 
-        if (dist < 8 && Time.time > timer)
-        {
+        if (dist < 6 && Time.time > timer)
             behvaiour(States.Attack);
-
-            if (i > 100)
-            {
-                timer = Time.time + coolDown;
-                i = 0;
-            }
-        }
         else if(!isStunned)
             behvaiour(States.Idle);
 
@@ -65,7 +58,7 @@ public class Mage : Enemy
                 Move();
                 break;
             case States.Attack:
-                Attack();
+                anim.SetBool("canAttack", true);
                 break;
             case States.Stunned:
                 Stunned();
@@ -78,20 +71,21 @@ public class Mage : Enemy
 
     void Attack()
     {
-        rb.velocity = Vector2.zero;
-        am.Animation("Mage_Attack");
-        Vector2 dir = player.transform.position - transform.position;
-        dir.x += Random.Range(-5, 5);
-        GameObject inst = Instantiate(energyball, transform.position - transform.forward, Quaternion.identity);
-        inst.GetComponent<Rigidbody2D>().AddForce(dir * projectileSpeed, ForceMode2D.Impulse);
-        Destroy(inst, 5);
-        i++;
-        //Add inst to pooling manager
+        timer = Time.time + coolDown;
+        for (int i = 0; i < 100; i++)
+        {
+            rb.velocity = Vector2.zero;
+            Vector2 dir = player.transform.position - transform.position;
+            dir.x += Random.Range(-5, 5);
+            GameObject inst = Instantiate(energyball, transform.position - transform.forward, Quaternion.identity);
+            inst.GetComponent<Rigidbody2D>().AddForce(dir * projectileSpeed, ForceMode2D.Impulse);
+            Destroy(inst, 5);
+        }
     }
 
     public override void Move()
     {
-        am.Animation("Mage_Idle");
+        anim.SetBool("canAttack", false);
         rb.velocity = transform.right;
 
         
