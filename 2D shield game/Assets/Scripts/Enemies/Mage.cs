@@ -76,6 +76,7 @@ public class Mage : Enemy
         {
             rb.velocity = Vector2.zero;
             Vector2 dir = player.transform.position - transform.position;
+            dir.y += Random.Range(-5, 5);
             dir.x += Random.Range(-5, 5);
             GameObject inst = Instantiate(energyball, transform.position - transform.forward, Quaternion.identity);
             inst.GetComponent<Rigidbody2D>().AddForce(dir * projectileSpeed, ForceMode2D.Impulse);
