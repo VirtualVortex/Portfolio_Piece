@@ -6,13 +6,14 @@ public class Eyebat : Enemy
 {
     GameObject player;
     bool runAction;
+    bool isStunned;
 
     // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
         player = GameObject.Find("Player");
-        timer = Time.time + coolDown;
+        //timer = Time.time + coolDown;
 
     }
 
@@ -23,6 +24,8 @@ public class Eyebat : Enemy
         
         if (dist < 8 && Time.time > timer)
             behvaiour(States.Attack);
+        else if(Time.time < timer && !isStunned)
+            behvaiour(States.Idle);
     }
 
     public override void behvaiour(States state)
@@ -34,6 +37,7 @@ public class Eyebat : Enemy
                 Idle();
                 break;
             case States.Attack:
+                Debug.Log("Attack");
                 anim.SetBool("canAttack", true);
                 break;
             case States.Stunned:
@@ -58,7 +62,13 @@ public class Eyebat : Enemy
         rb.AddForce(dir * speed, ForceMode2D.Impulse);
         timer = Time.time + coolDown;
     }
-    
+
+    public override void Stunned()
+    {
+        isStunned = true;
+        base.Stunned();
+    }
+
     public override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
