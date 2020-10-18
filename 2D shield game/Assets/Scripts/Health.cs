@@ -18,6 +18,7 @@ public class Health : MonoBehaviour
 
     SpriteRenderer sr;
     SceneChanger sc;
+    ParticleSystem ps;
     bool canDamage;
     float timer;
     Color color;
@@ -36,6 +37,9 @@ public class Health : MonoBehaviour
         color.a = 1;
         x = 1;
         startPos = transform.position;
+        if (GetComponent<ParticleSystem>())
+            ps = GetComponent<ParticleSystem>();
+        
     }
 
     // Update is called once per frame
@@ -51,6 +55,7 @@ public class Health : MonoBehaviour
             sc.GoToBegining();
             transform.position = startPos;
             currentHealth = maxHealth;
+            ps.Play();
         }
         else if (currentHealth <= 0 && !transform.name.Contains("Player"))
             Destroy(gameObject);
@@ -71,6 +76,8 @@ public class Health : MonoBehaviour
             canDamage = false;
             timer = Time.time + delay;
             StartCoroutine(Fade());
+            if (GetComponent<ParticleSystem>())
+                ps.Play();
         }
     }
 
@@ -79,6 +86,10 @@ public class Health : MonoBehaviour
         color.a = 0.5f;
         yield return new WaitUntil(() => canDamage == true);
         color.a = 1f;
+    }
 
+    private void OnDestroy()
+    {
+        
     }
 }
