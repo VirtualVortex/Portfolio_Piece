@@ -56,7 +56,7 @@ public class Gun : Weapon
         curAmmo -= 1;
 
         x = Mathf.InverseLerp(0, maxAmmo, curAmmo);
-        ammoBar.transform.localScale = new Vector3(x, 1, 1);
+        ammoBar.fillAmount = x;
     }
 
     void LaserPointer()

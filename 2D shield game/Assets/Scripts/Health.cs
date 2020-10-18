@@ -55,7 +55,6 @@ public class Health : MonoBehaviour
             sc.GoToBegining();
             transform.position = startPos;
             currentHealth = maxHealth;
-            ps.Play();
         }
         else if (currentHealth <= 0 && !transform.name.Contains("Player"))
             Destroy(gameObject);
@@ -63,7 +62,7 @@ public class Health : MonoBehaviour
         if (useUI)
         {
             x = Mathf.InverseLerp(0, maxHealth, currentHealth);
-            healthBar.transform.localScale = new Vector3(x, 1, 1);
+            healthBar.fillAmount = x;
         }
         
     }
