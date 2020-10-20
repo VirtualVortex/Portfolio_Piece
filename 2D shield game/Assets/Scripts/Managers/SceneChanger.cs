@@ -40,6 +40,6 @@ public class SceneChanger : MonoBehaviour
 
     public void GoToBegining()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     } 
 }
