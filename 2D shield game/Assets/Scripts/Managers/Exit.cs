@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Exit : MonoBehaviour
 {
+    [SerializeField]
+    string scene;
+
     SceneChanger sc;
     // Start is called before the first frame update
     void Start() => sc = SceneChanger.inst;
@@ -17,6 +20,6 @@ public class Exit : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.name.Contains("Player"))
-            sc.ChangeScene();
+            sc.ChangeScene(scene);
     }
 }

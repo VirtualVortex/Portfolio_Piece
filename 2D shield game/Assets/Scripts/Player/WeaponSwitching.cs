@@ -38,8 +38,8 @@ public class WeaponSwitching : MonoBehaviour
         i += scrolldata;
         
         if (i <= -1)
-            i = 2;
-        else if (i >= 3)
+            i = (weapons.Length - 1);
+        else if (i >= weapons.Length)
             i = 0;
         
         for (int j = 0; j < weapons.Length; j++)
