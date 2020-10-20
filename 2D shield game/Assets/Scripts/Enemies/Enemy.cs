@@ -56,7 +56,6 @@ public class Enemy : MonoBehaviour
 
     public virtual void Stunned()
     {
-        Debug.Log(transform.name + ": Stunned");
         timer = Time.time + 5;
         rb.velocity = Vector2.zero;
     }

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6351497284448701290}
   - component: {fileID: 1579557923}
   - component: {fileID: 3817352599880210595}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -199,3 +199,5 @@ MonoBehaviour:
   maxHealth: 3
   delay: 3
   currentHealth: 0
+  useUI: 1
+  healthBar: {fileID: 0}

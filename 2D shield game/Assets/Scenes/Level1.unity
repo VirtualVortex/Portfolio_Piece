@@ -1120,11 +1120,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3817352599880210595, guid: 8b57da08fc2e6a449b4796ec3035265a,
         type: 3}
-      propertyPath: useUI
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3817352599880210595, guid: 8b57da08fc2e6a449b4796ec3035265a,
-        type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 341879253}
@@ -1132,11 +1127,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7224275104822925195, guid: 8b57da08fc2e6a449b4796ec3035265a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7795084705543174502, guid: 8b57da08fc2e6a449b4796ec3035265a,
         type: 3}
@@ -1735,11 +1725,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8341160052568070051, guid: e549524d25a122346b876a5303c68bf0,
-        type: 3}
-      propertyPath: m_Parameters.alignment
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8341160052568070104, guid: e549524d25a122346b876a5303c68bf0,
         type: 3}
       propertyPath: m_LocalPosition.x
