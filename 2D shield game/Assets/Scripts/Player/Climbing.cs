@@ -26,16 +26,24 @@ public class Climbing : MonoBehaviour
         else if (!canClimb)
             climbing = false;
 
-        if (Input.GetKeyUp(KeyCode.W))
+        if (Input.GetKeyUp(KeyCode.W) && canClimb)
             RBFreezeConstraints();
-        
 
-        
+        if (!canClimb)
+            ResetConstraints();
     }
 
     void RBFreezeConstraints()
     {
+        master.rb.gravityScale = 0;
         master.rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+        master.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+
+    private void ResetConstraints()
+    {
+        master.rb.gravityScale = 1;
+        master.rb.constraints = RigidbodyConstraints2D.None;
         master.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
