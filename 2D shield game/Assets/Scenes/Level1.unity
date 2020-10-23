@@ -1818,6 +1818,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mage
       objectReference: {fileID: 0}
+    - target: {fileID: 8809548082124957538, guid: a6da4c066e33f774e9bfcc8bb7d4274b,
+        type: 3}
+      propertyPath: coolDown
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8809548082124957539, guid: a6da4c066e33f774e9bfcc8bb7d4274b,
         type: 3}
       propertyPath: m_LocalPosition.x
