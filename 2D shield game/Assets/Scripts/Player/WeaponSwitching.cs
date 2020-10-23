@@ -20,6 +20,7 @@ public class WeaponSwitching : MonoBehaviour
         WeaponPicker(0);
         lr = GetComponent<LineRenderer>();
         master = MasterClass.inst;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame

@@ -33,10 +33,14 @@ public class Weapon : MonoBehaviour
         mousePos.z = -1;
         float dist = Vector2.Distance(mousePos, player.transform.position);
 
-        if (dist < maxDist)
+        if (dist > maxDist)
+        {
+            Vector3 fromOriginToObject = mousePos - player.transform.position;
+            fromOriginToObject *= maxDist / dist;
+            transform.position = player.transform.position + fromOriginToObject;
+        }
+        else 
             transform.position = mousePos;
-        /*else if (dist > maxDist)
-            transform.position = (Vector2)player.transform.position;*/
     }
 
     private void OnEnable()
