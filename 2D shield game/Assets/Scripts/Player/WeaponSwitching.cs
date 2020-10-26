@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class WeaponSwitching : MonoBehaviour
 {
-    [SerializeField]
-    GameObject[] weapons;
+    public GameObject[] weapons;
     [SerializeField]
     float sensitivty;
 
-    float i;
+    [HideInInspector]
+    public float i;
+
     LineRenderer lr;
     MasterClass master;
 
@@ -41,11 +42,11 @@ public class WeaponSwitching : MonoBehaviour
         Debug.Log(i);
 
         if (i <= -1)
-            i = (weapons.Length - 1);
-        else if (i >= weapons.Length)
+            i = (weapons.Length - 2);
+        else if (i >= weapons.Length - 1)
             i = 0;
         
-        for (int j = 0; j < weapons.Length; j++)
+        for (int j = 0; j < weapons.Length - 1; j++)
         {
             if (j == i)
             {
