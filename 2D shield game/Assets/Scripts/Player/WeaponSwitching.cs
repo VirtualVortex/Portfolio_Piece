@@ -37,7 +37,9 @@ public class WeaponSwitching : MonoBehaviour
     void WeaponPicker(float scrolldata)
     {
         i += scrolldata;
-        
+        i = Mathf.RoundToInt(i);
+        Debug.Log(i);
+
         if (i <= -1)
             i = (weapons.Length - 1);
         else if (i >= weapons.Length)
@@ -47,7 +49,6 @@ public class WeaponSwitching : MonoBehaviour
         {
             if (j == i)
             {
-                Debug.Log(i);
                 weapons[(int)i].SetActive(true);
             }
 
