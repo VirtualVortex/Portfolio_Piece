@@ -52,9 +52,7 @@ public class WeaponSwitching : MonoBehaviour
         for (int j = 0; j < weapons.Length - 1; j++)
         {
             if (j == i)
-            {
                 weapons[(int)i].SetActive(true);
-            }
 
             if (j != i)
                 weapons[j].SetActive(false);

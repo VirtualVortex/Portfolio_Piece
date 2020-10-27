@@ -24,7 +24,7 @@ public class PauseMenu : MonoBehaviour
         {
             pauseMenu.SetActive(true);
             ws.paused = true;
-            //Time.timeScale = 0;
+            Time.timeScale = 0;
             weapon = FindObjectOfType<Weapon>();
             weapon.maxDist = 50;
             
@@ -39,8 +39,8 @@ public class PauseMenu : MonoBehaviour
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
-        //Time.timeScale = 1;
         ws.paused = false;
+        Time.timeScale = 1;
         weapon.maxDist = 2;
         ws.i = 0;
     }
