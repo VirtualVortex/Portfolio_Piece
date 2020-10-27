@@ -7,6 +7,10 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float coolDown;
 
+    [Header("Audio")]
+    public AudioClip idle;
+    public AudioClip attacking;
+
     [HideInInspector]
     public enum States {Idle, Attack, Stunned};
     [HideInInspector]

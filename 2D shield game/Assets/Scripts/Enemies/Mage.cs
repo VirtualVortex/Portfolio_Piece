@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mage : Enemy
 {
-    [SerializeField]
+    [SerializeField , Header("Settings")]
     GameObject energyball;
     [SerializeField]
     float projectileSpeed;

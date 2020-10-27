@@ -15,6 +15,9 @@ public class WeaponSwitching : MonoBehaviour
     LineRenderer lr;
     MasterClass master;
 
+    [HideInInspector]
+    public bool paused;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +34,7 @@ public class WeaponSwitching : MonoBehaviour
         lr.SetPosition(1, weapons[(int)i].transform.position);
 
         float scrollData = Input.mouseScrollDelta.y * sensitivty;
-        if (scrollData != 0.0f)
+        if (scrollData != 0.0f && !paused)
             WeaponPicker(scrollData);
     }
 
@@ -57,5 +60,20 @@ public class WeaponSwitching : MonoBehaviour
                 weapons[j].SetActive(false);
         }
         
+    }
+
+    public void EnableClicker()
+    {
+        for (int j = 0; j < weapons.Length; j++)
+        {
+            if (j == 3)
+            {
+                weapons[3].SetActive(true);
+                i = 3;
+            }
+
+            if (j != 3)
+                weapons[j].SetActive(false);
+        }
     }
 }

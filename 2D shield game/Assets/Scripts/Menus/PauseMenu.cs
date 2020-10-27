@@ -23,12 +23,15 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             pauseMenu.SetActive(true);
-            ws.i = 3;
-            Time.timeScale = 0;
+            ws.paused = true;
+            //Time.timeScale = 0;
             weapon = FindObjectOfType<Weapon>();
             weapon.maxDist = 50;
             
         }
+
+        if(ws.paused)
+            ws.EnableClicker();
     }
 
     public void QuitGame() => Application.Quit();
@@ -36,7 +39,8 @@ public class PauseMenu : MonoBehaviour
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
+        ws.paused = false;
         weapon.maxDist = 2;
         ws.i = 0;
     }

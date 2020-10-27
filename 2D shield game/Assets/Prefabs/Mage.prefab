@@ -4933,6 +4933,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   coolDown: 3
+  idle: {fileID: 8300000, guid: 07bd807357efd394b9ae8f5467a715ab, type: 3}
+  attacking: {fileID: 8300000, guid: 30428c8625434394ca989c6c0a19ce9a, type: 3}
   states: 0
   rb: {fileID: 0}
   anim: {fileID: 0}
