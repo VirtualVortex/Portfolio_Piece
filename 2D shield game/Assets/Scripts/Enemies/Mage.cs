@@ -10,6 +10,8 @@ public class Mage : Enemy
     float projectileSpeed;
     [SerializeField]
     Transform raycastPos;
+    [SerializeField]
+    ParticleSystem ps;
 
     GameObject player;
     bool runAction;
@@ -95,6 +97,7 @@ public class Mage : Enemy
     public override void Stunned()
     {
         isStunned = true;
+        ps.Play();
         base.Stunned();
     }
 

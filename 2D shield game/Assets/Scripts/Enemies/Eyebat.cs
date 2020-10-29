@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Eyebat : Enemy
 {
+    [SerializeField]
+    ParticleSystem ps;
+
     GameObject player;
     bool runAction;
     bool isStunned;
@@ -66,6 +69,7 @@ public class Eyebat : Enemy
     public override void Stunned()
     {
         isStunned = true;
+        ps.Play();
         base.Stunned();
     }
 
