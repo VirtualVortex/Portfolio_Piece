@@ -3670,6 +3670,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ladders
       objectReference: {fileID: 0}
+    - target: {fileID: 6191044985579069601, guid: d8826a6eef61d404eb42508d9f72b0a4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6191044985579069663, guid: d8826a6eef61d404eb42508d9f72b0a4,
         type: 3}
       propertyPath: m_Tiles.Array.size

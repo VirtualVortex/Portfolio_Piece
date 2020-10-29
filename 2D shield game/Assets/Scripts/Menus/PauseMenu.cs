@@ -42,6 +42,7 @@ public class PauseMenu : MonoBehaviour
         ws.paused = false;
         Time.timeScale = 1;
         weapon.maxDist = 2;
-        ws.i = 0;
+        ws.UnenableClicker();
+        ws.WeaponPicker(1);
     }
 }

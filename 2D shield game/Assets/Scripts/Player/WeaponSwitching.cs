@@ -38,7 +38,7 @@ public class WeaponSwitching : MonoBehaviour
             WeaponPicker(scrollData);
     }
 
-    void WeaponPicker(float scrolldata)
+    public void WeaponPicker(float scrolldata)
     {
         i += scrolldata;
         i = Mathf.RoundToInt(i);
@@ -72,6 +72,18 @@ public class WeaponSwitching : MonoBehaviour
 
             if (j != 3)
                 weapons[j].SetActive(false);
+        }
+    }
+
+    public void UnenableClicker()
+    {
+        for (int j = 0; j < weapons.Length; j++)
+        {
+            if (j == 3)
+            {
+                weapons[3].SetActive(false);
+                i = 3;
+            }
         }
     }
 }
