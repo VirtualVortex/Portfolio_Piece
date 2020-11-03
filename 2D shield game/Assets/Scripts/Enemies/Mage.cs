@@ -60,11 +60,9 @@ public class Mage : Enemy
         {
             case States.Idle:
                 runAction = false;
-                Debug.Log(transform.name + ": Idle");
                 Move();
                 break;
             case States.Attack:
-                Debug.Log(transform.name + ": Attack");
                 anim.SetBool("canAttack", true);
                 break;
             case States.Stunned:
@@ -93,12 +91,8 @@ public class Mage : Enemy
             Destroy(inst, 5);
         }
     }
-
-    public override void Idle()
-    {
-        am.PlayLoop(audioSource, idle);
-    }
-
+    
+    //Move the entity from left to right
     public override void Move()
     {
         anim.SetBool("canAttack", false);
@@ -108,6 +102,7 @@ public class Mage : Enemy
             am.PlayLoop(audioSource, idle);
     }
 
+    //Freezes the enetiy in place
     public override void Stunned()
     {
         isStunned = true;

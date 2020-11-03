@@ -19,6 +19,8 @@ public class Climbing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(canClimb);
+
         float y = Input.GetAxis("Vertical");
 
         if (canClimb && Input.GetKeyDown(KeyCode.W))
@@ -37,7 +39,7 @@ public class Climbing : MonoBehaviour
     {
         master.rb.gravityScale = 0;
         master.rb.constraints = RigidbodyConstraints2D.FreezePositionY;
-        master.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        //master.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     private void ResetConstraints()

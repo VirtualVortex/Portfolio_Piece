@@ -93,6 +93,7 @@ MonoBehaviour:
   - {fileID: 0}
   sensitivty: 0.6
   i: 0
+  paused: 0
 --- !u!120 &8341160052568070051
 LineRenderer:
   m_ObjectHideFlags: 0
