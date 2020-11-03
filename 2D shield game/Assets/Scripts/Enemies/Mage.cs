@@ -37,7 +37,8 @@ public class Mage : Enemy
 
         if (dist < 6 && Time.time > timer)
             behvaiour(States.Attack);
-        else if(!isStunned)
+
+        if (!isStunned && dist > 6 )
             behvaiour(States.Idle);
 
         RaycastHit2D hit = Physics2D.Raycast(raycastPos.position, -raycastPos.up);
@@ -59,9 +60,11 @@ public class Mage : Enemy
         {
             case States.Idle:
                 runAction = false;
+                Debug.Log(transform.name + ": Idle");
                 Move();
                 break;
             case States.Attack:
+                Debug.Log(transform.name + ": Attack");
                 anim.SetBool("canAttack", true);
                 break;
             case States.Stunned:
@@ -93,9 +96,7 @@ public class Mage : Enemy
 
     public override void Idle()
     {
-        base.Idle();
-        if(audioSource.clip != idle)
-            am.PlayLoop(audioSource, idle);
+        am.PlayLoop(audioSource, idle);
     }
 
     public override void Move()
@@ -103,7 +104,8 @@ public class Mage : Enemy
         anim.SetBool("canAttack", false);
         rb.velocity = transform.right;
 
-        
+        if(audioSource.clip != idle)
+            am.PlayLoop(audioSource, idle);
     }
 
     public override void Stunned()
