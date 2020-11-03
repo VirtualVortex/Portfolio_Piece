@@ -42,7 +42,6 @@ public class WeaponSwitching : MonoBehaviour
     {
         i += scrolldata;
         i = Mathf.RoundToInt(i);
-        Debug.Log(i);
 
         if (i <= -1)
             i = (weapons.Length - 2);

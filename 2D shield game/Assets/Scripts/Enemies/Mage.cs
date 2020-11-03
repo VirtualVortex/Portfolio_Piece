@@ -17,6 +17,7 @@ public class Mage : Enemy
     bool runAction;
     int i;
     bool isStunned;
+    
 
     // Start is called before the first frame update
     public override void Start()
@@ -26,6 +27,7 @@ public class Mage : Enemy
         player = GameObject.Find("Player");
         timer = Time.time + coolDown;
         behvaiour(States.Idle);
+        am.SwitchMusic(audioSource,idle);
     }
 
     // Update is called once per frame
@@ -74,6 +76,9 @@ public class Mage : Enemy
     void Attack()
     {
         timer = Time.time + coolDown;
+        if(i == 0)
+            am.PlayOnce(audioSource, attacking);
+
         for (int i = 0; i < 100; i++)
         {
             rb.velocity = Vector2.zero;
@@ -84,6 +89,13 @@ public class Mage : Enemy
             inst.GetComponent<Rigidbody2D>().AddForce(dir * projectileSpeed, ForceMode2D.Impulse);
             Destroy(inst, 5);
         }
+    }
+
+    public override void Idle()
+    {
+        base.Idle();
+        if(audioSource.clip != idle)
+            am.PlayLoop(audioSource, idle);
     }
 
     public override void Move()

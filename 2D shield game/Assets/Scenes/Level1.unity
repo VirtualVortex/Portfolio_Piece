@@ -569,6 +569,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fe1fa611339d9a42b5a12e8fdc95e9a, type: 3}
+--- !u!1 &1100911411 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8341160052568070106, guid: e549524d25a122346b876a5303c68bf0,
+    type: 3}
+  m_PrefabInstance: {fileID: 8341160051919572067}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1100911418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100911411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83fbb1a37a400b64ea205858321f1714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1409439488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1366,7 +1384,7 @@ PrefabInstance:
     - target: {fileID: 6954772381145184120, guid: 0fe1fa611339d9a42b5a12e8fdc95e9a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.47
+      value: -0.69
       objectReference: {fileID: 0}
     - target: {fileID: 6954772381145184120, guid: 0fe1fa611339d9a42b5a12e8fdc95e9a,
         type: 3}
@@ -1417,6 +1435,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6954772381145184120, guid: 0fe1fa611339d9a42b5a12e8fdc95e9a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.9286947
       objectReference: {fileID: 0}
     - target: {fileID: 6954772381145184123, guid: 0fe1fa611339d9a42b5a12e8fdc95e9a,
         type: 3}
@@ -1594,11 +1617,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mage
-      objectReference: {fileID: 0}
-    - target: {fileID: 8809548082124957538, guid: a6da4c066e33f774e9bfcc8bb7d4274b,
-        type: 3}
-      propertyPath: coolDown
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8809548082124957539, guid: a6da4c066e33f774e9bfcc8bb7d4274b,
         type: 3}

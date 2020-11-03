@@ -23,12 +23,17 @@ public class Enemy : MonoBehaviour
     bool completeAction;
     [HideInInspector]
     public float timer;
-
+    [HideInInspector]
+    public AudioManager am;
+    [HideInInspector]
+    public AudioSource audioSource;
     // Start is called before the first frame update
     public virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        am = AudioManager.inst;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
