@@ -101,6 +101,9 @@ MonoBehaviour:
   master: {fileID: 0}
   maxAmmo: 3
   ammoBar: {fileID: 0}
+  layer:
+    serializedVersion: 2
+    m_Bits: 1025
   damage: 2
 --- !u!61 &1896371638871905051
 BoxCollider2D:

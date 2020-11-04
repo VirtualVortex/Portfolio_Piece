@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
         else if (inst != this)
             Destroy(FindObjectOfType<SceneChanger>().gameObject);
 
-        //DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this.gameObject);
     }
 
     public void SwitchMusic(AudioSource audioSource, AudioClip clip)

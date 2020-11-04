@@ -9,6 +9,8 @@ public class Gun : Weapon
     float maxAmmo;
     [SerializeReference]
     Image ammoBar;
+    [SerializeField]
+    LayerMask layer;
 
     public float damage;
 
@@ -31,7 +33,7 @@ public class Gun : Weapon
     {
         base.Update();
 
-        hit = Physics2D.Raycast(transform.position, transform.right, Mathf.Infinity);
+        hit = Physics2D.Raycast(transform.position, transform.right, Mathf.Infinity, layer);
 
         LaserPointer();
         movement();

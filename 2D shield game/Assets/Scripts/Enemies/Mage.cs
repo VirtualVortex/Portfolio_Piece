@@ -12,6 +12,8 @@ public class Mage : Enemy
     Transform raycastPos;
     [SerializeField]
     ParticleSystem ps;
+    [SerializeField]
+    LayerMask layer;
 
     GameObject player;
     bool runAction;
@@ -41,12 +43,26 @@ public class Mage : Enemy
             behvaiour(States.Idle);
 
         RaycastHit2D hit = Physics2D.Raycast(raycastPos.position, -raycastPos.up);
+        RaycastHit2D groundDetection = Physics2D.Raycast(transform.position, -raycastPos.up, Mathf.Infinity, layer);
 
-        if (hit.distance > 5)
+        Debug.Log(groundDetection.distance);
+
+        if (hit.distance > 5 && groundDetection.distance < 5)
             if (transform.eulerAngles.y == 0)
                 transform.rotation = Quaternion.Euler(0, 180, 0);
             else if (transform.eulerAngles.y == 180)
                 transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        if (groundDetection.distance > 5)
+        {
+            speed = 0;
+            rb.mass = 10;
+        }
+        else
+        {
+            speed = 1;
+            rb.mass = 1;
+        }
 
         if (isStunned && Time.time > timer)
             behvaiour(States.Idle);
@@ -95,7 +111,7 @@ public class Mage : Enemy
     public override void Move()
     {
         anim.SetBool("canAttack", false);
-        rb.velocity = transform.right;
+        rb.velocity = transform.right + transform.up;
     }
 
     //Freezes the enetiy in place

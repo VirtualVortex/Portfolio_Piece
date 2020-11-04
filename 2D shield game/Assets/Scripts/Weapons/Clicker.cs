@@ -16,4 +16,5 @@ public class Clicker : Weapon
         base.Update();
         movement();
     }
+    
 }

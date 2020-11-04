@@ -4947,6 +4947,9 @@ MonoBehaviour:
   projectileSpeed: 0.5
   raycastPos: {fileID: 2077715352}
   ps: {fileID: 882923087891757649}
+  layer:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!114 &8809548082124957540
 MonoBehaviour:
   m_ObjectHideFlags: 0
