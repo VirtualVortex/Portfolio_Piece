@@ -55,13 +55,7 @@ public class Mage : Enemy
 
         if (groundDetection.distance > 5)
         {
-            speed = 0;
-            rb.mass = 10;
-        }
-        else
-        {
-            speed = 1;
-            rb.mass = 1;
+            rb.velocity = -transform.up;
         }
 
         if (isStunned && Time.time > timer)
@@ -111,7 +105,7 @@ public class Mage : Enemy
     public override void Move()
     {
         anim.SetBool("canAttack", false);
-        rb.velocity = transform.right + transform.up;
+        rb.velocity = transform.right;
     }
 
     //Freezes the enetiy in place
