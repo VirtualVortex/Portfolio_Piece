@@ -39,6 +39,7 @@ public class PauseMenu : MonoBehaviour
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
+        Cursor.visible = false;
         ws.paused = false;
         Time.timeScale = 1;
         weapon.maxDist = 2;

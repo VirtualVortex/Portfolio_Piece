@@ -27,7 +27,6 @@ public class Mage : Enemy
         player = GameObject.Find("Player");
         timer = Time.time + coolDown;
         behvaiour(States.Idle);
-        am.SwitchMusic(audioSource,idle);
     }
 
     // Update is called once per frame
@@ -97,9 +96,6 @@ public class Mage : Enemy
     {
         anim.SetBool("canAttack", false);
         rb.velocity = transform.right;
-
-        if(audioSource.clip != idle)
-            am.PlayLoop(audioSource, idle);
     }
 
     //Freezes the enetiy in place

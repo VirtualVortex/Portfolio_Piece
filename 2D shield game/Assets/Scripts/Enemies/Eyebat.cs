@@ -61,6 +61,7 @@ public class Eyebat : Enemy
     {
         Vector2 dir = player.transform.position - transform.position;
         rb.AddForce(dir * speed, ForceMode2D.Impulse);
+        am.PlayOnce(audioSource, attacking);
         timer = Time.time + coolDown;
     }
 

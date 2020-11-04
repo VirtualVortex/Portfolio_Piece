@@ -6,7 +6,10 @@ using UnityEngine;
 public class AnimationState : States
 {
     public string paramaterName;
-    public bool paramaterBool;
-    public float paramaterValue;
     public Animator anim;
+
+    public void PlayAnimation(bool play)
+    {
+        anim.SetBool(paramaterName, play);
+    }
 }

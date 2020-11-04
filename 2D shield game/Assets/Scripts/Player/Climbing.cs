@@ -39,7 +39,7 @@ public class Climbing : MonoBehaviour
     {
         master.rb.gravityScale = 0;
         master.rb.constraints = RigidbodyConstraints2D.FreezePositionY;
-        //master.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        master.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     private void ResetConstraints()
@@ -51,13 +51,13 @@ public class Climbing : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag.Contains("Climable"))
+        if (collision.tag.Contains("Climable") && transform.name.Contains("Player"))
             canClimb = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag.Contains("Climable"))
+        if (collision.tag.Contains("Climable") && transform.name.Contains("Player"))
             canClimb = false;
     }
 }
