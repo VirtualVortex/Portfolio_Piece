@@ -10,7 +10,7 @@ public class Mage : Enemy
     float projectileSpeed;
     [SerializeField]
     Transform raycastPos;
-    [SerializeField]
+    [SerializeField, Header("Particles")]
     ParticleSystem ps;
     [SerializeField]
     LayerMask layer;

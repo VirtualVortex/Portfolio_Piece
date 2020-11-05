@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Eyebat : Enemy
 {
-    [SerializeField]
+    [SerializeField, Header("Particles")]
     ParticleSystem ps;
 
     GameObject player;
