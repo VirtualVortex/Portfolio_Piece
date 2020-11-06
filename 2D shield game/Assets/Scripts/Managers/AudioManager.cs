@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
         if (inst == null)
             inst = this;
         else if (inst != this)
-            Destroy(FindObjectOfType<SceneChanger>().gameObject);
+            Destroy(FindObjectOfType<AudioManager>().gameObject);
 
         DontDestroyOnLoad(this.gameObject);
     }
