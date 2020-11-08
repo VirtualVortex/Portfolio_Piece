@@ -7,13 +7,12 @@ public class Gun : Weapon
 {
     [SerializeField]
     float maxAmmo;
-    [SerializeReference]
-    Image ammoBar;
     [SerializeField]
     LayerMask layer;
 
     public float damage;
 
+    Image ammoBar;
     LineRenderer lr;
     float curAmmo;
     RaycastHit2D hit;
@@ -24,6 +23,9 @@ public class Gun : Weapon
     {
         curAmmo = maxAmmo;
         lr = GetComponent<LineRenderer>();
+
+        //find the ammo bar
+        ammoBar = GameObject.Find("Canvas").transform.Find("Background").transform.Find("AmmoBar").GetComponent<Image>();
         x = 1;
         base.Start();
     }

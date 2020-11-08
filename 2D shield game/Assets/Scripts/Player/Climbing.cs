@@ -19,7 +19,6 @@ public class Climbing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(canClimb);
 
         float y = Input.GetAxis("Vertical");
 

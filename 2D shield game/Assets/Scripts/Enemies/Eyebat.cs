@@ -40,7 +40,6 @@ public class Eyebat : Enemy
                 Idle();
                 break;
             case States.Attack:
-                Debug.Log("Attack");
                 anim.SetBool("canAttack", true);
                 break;
             case States.Stunned:

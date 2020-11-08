@@ -1167,6 +1167,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1896371638871905048, guid: de979add51addb144acb6d60d9a1a7b2,
+        type: 3}
+      propertyPath: ammoBar
+      value: 
+      objectReference: {fileID: 426194868}
     - target: {fileID: 1896371638871905050, guid: de979add51addb144acb6d60d9a1a7b2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1235,6 +1240,49 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 875793495}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &878649648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 878649650}
+  - component: {fileID: 878649649}
+  m_Layer: 0
+  m_Name: Camera Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &878649649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878649648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ddff4b7744b5af4d881ccb48d9e5d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &878649650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878649648}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.28, y: -3.46, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &918908625
 GameObject:
   m_ObjectHideFlags: 0
@@ -2501,12 +2549,12 @@ PrefabInstance:
     - target: {fileID: 5987593739658348148, guid: 50e13a20126afaa4a9cd5d2b19d6c08c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5987593739658348148, guid: 50e13a20126afaa4a9cd5d2b19d6c08c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5987593739658348148, guid: 50e13a20126afaa4a9cd5d2b19d6c08c,
         type: 3}
@@ -5025,12 +5073,12 @@ PrefabInstance:
     - target: {fileID: 7795084705543174502, guid: 8b57da08fc2e6a449b4796ec3035265a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.4184527
+      value: -2.3
       objectReference: {fileID: 0}
     - target: {fileID: 7795084705543174502, guid: 8b57da08fc2e6a449b4796ec3035265a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.3211317
+      value: 30.7
       objectReference: {fileID: 0}
     - target: {fileID: 7795084705543174502, guid: 8b57da08fc2e6a449b4796ec3035265a,
         type: 3}
@@ -6128,11 +6176,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Clicker
-      objectReference: {fileID: 0}
-    - target: {fileID: 4109815864224748815, guid: 3dbd2d95dc70ec9499fd14d4493b8ccb,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dbd2d95dc70ec9499fd14d4493b8ccb, type: 3}

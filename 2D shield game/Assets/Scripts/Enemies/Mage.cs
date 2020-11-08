@@ -45,7 +45,6 @@ public class Mage : Enemy
         RaycastHit2D hit = Physics2D.Raycast(raycastPos.position, -raycastPos.up);
         RaycastHit2D groundDetection = Physics2D.Raycast(transform.position, -raycastPos.up, Mathf.Infinity, layer);
 
-        Debug.Log(groundDetection.distance);
 
         if (hit.distance > 5 && groundDetection.distance < 5)
             if (transform.eulerAngles.y == 0)
