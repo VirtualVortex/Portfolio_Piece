@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    public float currentScene;
+    public string currentScene;
+    public Vector2 startPos;
     public static SceneChanger inst;
 
     int i;
@@ -30,16 +31,14 @@ public class SceneChanger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        currentScene = SceneManager.GetActiveScene().name;
     }
 
-    public void ChangeScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
+    public void ChangeScene(string sceneName) => SceneManager.LoadScene(sceneName);
 
     public void GoToBegining()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(currentScene);
+        MasterClass.inst.player.transform.position = startPos;
     } 
 }

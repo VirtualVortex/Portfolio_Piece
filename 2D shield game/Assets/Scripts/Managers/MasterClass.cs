@@ -20,38 +20,15 @@ public class MasterClass : MonoBehaviour
     public Climbing climbing { get; private set; }
     [SerializeField]
     public Health health { get; private set; }
-
-    string sceneName;
+    
 
     private void Awake()
     {
         inst = this;
-        Singleton();
 
         SetUp();
-        sceneName = SceneManager.GetActiveScene().name;
     }
-
-    void Update()
-    {
-        if (sceneName != SceneManager.GetActiveScene().name)
-        {
-            SetUp();
-            sceneName = SceneManager.GetActiveScene().name;
-        }
-    }
-
-    void Singleton()
-    {
-        //Singleton
-        if(inst == null)
-            inst = this;
-        else if(inst != this)
-            Destroy(FindObjectOfType<SceneChanger>().gameObject);
-
-        DontDestroyOnLoad(this.gameObject);
-    }
-
+    
     void SetUp()
     {
         player = GameObject.Find("Player");
