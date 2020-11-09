@@ -57,7 +57,6 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0 && transform.name.Contains("Player"))
         {
             sc.GoToBegining();
-            transform.position = startPos;
             currentHealth = maxHealth;
             CameraControls.inst.SetUp();
         }
