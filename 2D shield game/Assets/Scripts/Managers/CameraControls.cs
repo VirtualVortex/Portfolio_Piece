@@ -40,12 +40,12 @@ public class CameraControls : MonoBehaviour
             SetUp();
             sceneName = SceneManager.GetActiveScene().name;
         }
-
+        
         pos.y = player.position.y + 3;
         cam.position = pos;
     }
     
-    void SetUp()
+    public void SetUp()
     {
         Debug.Log("Set up");
         master = MasterClass.inst;
@@ -54,4 +54,5 @@ public class CameraControls : MonoBehaviour
         player = master.player.transform;
         pos = cam.position;
     }
+    
 }

@@ -55,6 +55,7 @@ public class Health : MonoBehaviour
             sc.GoToBegining();
             transform.position = startPos;
             currentHealth = maxHealth;
+            CameraControls.inst.SetUp();
         }
         else if (currentHealth <= 0 && !transform.name.Contains("Player"))
             Destroy(gameObject);
@@ -87,8 +88,5 @@ public class Health : MonoBehaviour
         color.a = 1f;
     }
 
-    private void OnDestroy()
-    {
-        
-    }
+    private void OnEnable() => CameraControls.inst.SetUp();
 }
