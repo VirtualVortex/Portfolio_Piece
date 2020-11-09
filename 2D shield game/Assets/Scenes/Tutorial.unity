@@ -1167,11 +1167,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1896371638871905048, guid: de979add51addb144acb6d60d9a1a7b2,
-        type: 3}
-      propertyPath: ammoBar
-      value: 
-      objectReference: {fileID: 426194868}
     - target: {fileID: 1896371638871905050, guid: de979add51addb144acb6d60d9a1a7b2,
         type: 3}
       propertyPath: m_LocalPosition.x

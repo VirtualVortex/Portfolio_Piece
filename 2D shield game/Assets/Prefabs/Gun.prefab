@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 310220031990038418}
   m_Layer: 2
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,6 @@ MonoBehaviour:
   maxDist: 2.5
   master: {fileID: 0}
   maxAmmo: 3
-  ammoBar: {fileID: 0}
   layer:
     serializedVersion: 2
     m_Bits: 1025

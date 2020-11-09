@@ -71,9 +71,8 @@ public class Enemy : MonoBehaviour
 
     public virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name.Contains("Shield"))
+        if (collision.tag.Contains("Shield"))
         {
-            
             behvaiour(States.Stunned);
         }
     }
