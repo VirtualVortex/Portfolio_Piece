@@ -30,6 +30,9 @@ public class Health : MonoBehaviour
     {
         if (!useUI)
             healthBar = null;
+        else if(useUI)
+            CameraControls.inst.SetUp();
+
         currentHealth = maxHealth;
         sr = GetComponent<SpriteRenderer>();
         sc = SceneChanger.inst;
@@ -39,6 +42,7 @@ public class Health : MonoBehaviour
         startPos = transform.position;
         if (GetComponent<ParticleSystem>())
             ps = GetComponent<ParticleSystem>();
+
         
     }
 
@@ -88,5 +92,5 @@ public class Health : MonoBehaviour
         color.a = 1f;
     }
 
-    private void OnEnable() => CameraControls.inst.SetUp();
+    
 }

@@ -29,7 +29,6 @@ public class CameraControls : MonoBehaviour
     {
         SetUp();
         sceneName = SceneManager.GetActiveScene().name;
-        Debug.Log(sceneName);
     }
 
     // Update is called once per frame
@@ -47,7 +46,6 @@ public class CameraControls : MonoBehaviour
     
     public void SetUp()
     {
-        Debug.Log("Set up");
         master = MasterClass.inst;
         cam = FindObjectOfType<Camera>().transform;
 

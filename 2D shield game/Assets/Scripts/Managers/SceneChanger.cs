@@ -38,7 +38,6 @@ public class SceneChanger : MonoBehaviour
 
     public void GoToBegining()
     {
-        SceneManager.LoadScene(currentScene);
-        MasterClass.inst.player.transform.position = startPos;
+        SceneManager.LoadScene(1);
     } 
 }
