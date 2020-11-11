@@ -36,8 +36,10 @@ public class Mage : Enemy
     {
         float dist = Vector2.Distance(player.transform.position, transform.position);
 
-        if (dist < 6 && Time.time > timer)
+        if (dist < 6 && Time.time > timer && !isStunned)
             behvaiour(States.Attack);
+        else if(dist < 6 && Time.time < timer && !isStunned)
+            anim.SetBool("canAttack", false);
 
         if (!isStunned && dist > 6 )
             behvaiour(States.Idle);
@@ -58,7 +60,7 @@ public class Mage : Enemy
         }
 
         if (isStunned && Time.time > timer)
-            behvaiour(States.Idle);
+            behvaiour(States.Stunned);
 
     }
 
@@ -84,6 +86,8 @@ public class Mage : Enemy
 
     void Attack()
     {
+        Debug.Log(timer);
+
         timer = Time.time + coolDown;
         if(i == 0)
             am.PlayOnce(audioSource, attacking);
