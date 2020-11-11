@@ -38,8 +38,7 @@ public class Mage : Enemy
 
         if (dist < 6 && Time.time > timer && !isStunned)
             behvaiour(States.Attack);
-        else if(dist < 6 && Time.time < timer && !isStunned)
-            anim.SetBool("canAttack", false);
+            
 
         if (!isStunned && dist > 6 )
             behvaiour(States.Idle);
@@ -102,6 +101,8 @@ public class Mage : Enemy
             inst.GetComponent<Rigidbody2D>().AddForce(dir * projectileSpeed, ForceMode2D.Impulse);
             Destroy(inst, 5);
         }
+
+        anim.SetBool("canAttack", false);
     }
     
     //Move the entity from left to right
