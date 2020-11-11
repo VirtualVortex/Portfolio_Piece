@@ -15,10 +15,11 @@ public class Health : MonoBehaviour
     bool useUI;
     [SerializeField]
     Image healthBar;
+    [SerializeField]
+    ParticleSystem ps;
 
     SpriteRenderer sr;
     SceneChanger sc;
-    ParticleSystem ps;
     bool canDamage;
     float timer;
     Color color;
@@ -40,8 +41,6 @@ public class Health : MonoBehaviour
         color.a = 1;
         x = 1;
         startPos = transform.position;
-        if (GetComponent<ParticleSystem>())
-            ps = GetComponent<ParticleSystem>();
 
         
     }
@@ -61,7 +60,10 @@ public class Health : MonoBehaviour
             CameraControls.inst.SetUp();
         }
         else if (currentHealth <= 0 && !transform.name.Contains("Player"))
-            Destroy(gameObject);
+        {
+            Destroy(gameObject, 2);
+            ps.Play();
+        }
 
         if (useUI)
         {
