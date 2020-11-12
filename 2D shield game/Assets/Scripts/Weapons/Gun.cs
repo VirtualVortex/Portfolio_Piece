@@ -44,6 +44,7 @@ public class Gun : Weapon
             Fire();
     }
 
+    //Move like other weapons while rotating away from the player
     public override void movement()
     {
         base.movement();

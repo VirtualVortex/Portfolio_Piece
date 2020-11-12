@@ -17,12 +17,14 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    //Switch audio clips
     public void SwitchMusic(AudioSource audioSource, AudioClip clip)
     {
         audioSource.clip = clip;
         audioSource.Play();
     }
 
+    //play loop of audio
     public void PlayLoop(AudioSource audioSource, AudioClip clip)
     {
         audioSource.clip = clip;
@@ -30,6 +32,7 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
     }
 
+    //play audio once
     public void PlayOnce(AudioSource audioSource, AudioClip clip)
     {
         audioSource.clip = clip;

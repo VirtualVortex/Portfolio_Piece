@@ -24,13 +24,14 @@ public class Eyebat : Enemy
     void Update()
     {
         float dist = Vector2.Distance(player.transform.position, transform.position);
-        
+
         if (dist < 8 && Time.time > timer)
             behvaiour(States.Attack);
-        else if(Time.time < timer && !isStunned)
+        else if (Time.time < timer && !isStunned)
             behvaiour(States.Idle);
     }
 
+    //Switch between different behaviours
     public override void behvaiour(States state)
     {
         switch (state)
@@ -51,21 +52,26 @@ public class Eyebat : Enemy
         }
     }
 
+    //Play Idle animation
     public override void Idle()
     {
         anim.SetBool("canAttack", false);
     }
 
+    //Move in direction of player
     public override void Move()
     {
         Vector2 dir = player.transform.position - transform.position;
         rb.AddForce(dir * speed, ForceMode2D.Impulse);
         am.PlayOnce(audioSource, attacking);
         timer = Time.time + coolDown;
+        anim.SetBool("canAttack", false);
     }
 
+    //Play stunned animation and vfx
     public override void Stunned()
     {
+        timer += coolDown;
         isStunned = true;
         ps.Play();
         base.Stunned();

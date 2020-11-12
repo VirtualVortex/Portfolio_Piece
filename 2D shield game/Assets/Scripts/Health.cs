@@ -25,6 +25,7 @@ public class Health : MonoBehaviour
     Color color;
     float x;
     Vector3 startPos;
+    bool runOnce;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +42,6 @@ public class Health : MonoBehaviour
         color.a = 1;
         x = 1;
         startPos = transform.position;
-
         
     }
 
@@ -59,10 +59,17 @@ public class Health : MonoBehaviour
             currentHealth = maxHealth;
             CameraControls.inst.SetUp();
         }
-        else if (currentHealth <= 0 && !transform.name.Contains("Player"))
+
+        if (currentHealth <= 0 && !transform.name.Contains("Player"))
         {
-            Destroy(gameObject, 2);
-            ps.Play();
+            if (!runOnce)
+            {
+                ps.Play();
+                runOnce = true;
+            }
+            sr.enabled = false;
+            GetComponent<Collider2D>().enabled = false;
+            Destroy(gameObject, 0.5f);
         }
 
         if (useUI)
