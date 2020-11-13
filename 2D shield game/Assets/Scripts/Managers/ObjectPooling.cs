@@ -35,5 +35,10 @@ public class ObjectPooling : MonoBehaviour
 
     public void AddObject(GameObject ball) => objectQueue.Enqueue(ball);
 
-    public GameObject RemoveObject() => objectQueue.Dequeue();
+    public GameObject RemoveObject()
+    {
+        GameObject inst = objectQueue.Dequeue();
+        inst.SetActive(true);
+        return inst;
+    }
 }

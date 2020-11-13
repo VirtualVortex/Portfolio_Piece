@@ -19,7 +19,7 @@ public class Mage : Enemy
     bool runAction;
     int i;
     bool isStunned;
-    
+    float amount;
 
     // Start is called before the first frame update
     public override void Start()
@@ -92,14 +92,19 @@ public class Mage : Enemy
             am.PlayOnce(audioSource, attacking);
 
         //Spawning objects and accessing pooling manager
-        if (i < ObjectPooling.inst.amount)
-            for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 100; i++)
+        {
+            if (amount < ObjectPooling.inst.amount)
             {
                 inst = Instantiate(energyball, transform.position - transform.forward, Quaternion.identity);
                 BallDirection(inst);
+                amount++;
             }
-        else
-            BallDirection(ObjectPooling.inst.RemoveObject());
+            else
+                BallDirection(ObjectPooling.inst.RemoveObject());
+        }
+        
+            
 
         anim.SetBool("canAttack", false);
     }
@@ -127,11 +132,11 @@ public class Mage : Enemy
     //Setting direction of the energy ball
     void BallDirection(GameObject ball)
     {
+        ball.transform.position = transform.position;
         rb.velocity = Vector2.zero;
         Vector2 dir = player.transform.position - transform.position;
         dir.y += Random.Range(-5, 5);
         dir.x += Random.Range(-5, 5);
         ball.GetComponent<Rigidbody2D>().AddForce(dir * projectileSpeed, ForceMode2D.Impulse);
-        //unenabled object afte set amount of time and add to queue
     }
 }
