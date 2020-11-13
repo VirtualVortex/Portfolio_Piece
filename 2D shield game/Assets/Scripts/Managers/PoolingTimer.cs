@@ -13,10 +13,15 @@ public class PoolingTimer : MonoBehaviour
         Invoke("EnqueueObject", time);
     }
 
-    //Add this object to the list after set amount of time
+    //Add this object to the list after set amount of time 
     void EnqueueObject()
     {
         ObjectPooling.inst.AddObject(gameObject);
         gameObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        Invoke("EnqueueObject", time);
     }
 }

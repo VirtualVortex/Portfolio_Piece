@@ -33,7 +33,8 @@ public class Shield : Weapon
 
         if (collision.transform.tag.Contains("Damage"))
         {
-            Destroy(collision.gameObject);
+            ObjectPooling.inst.AddObject(collision.gameObject);
+            collision.gameObject.SetActive(false);
         }
     }
 }
