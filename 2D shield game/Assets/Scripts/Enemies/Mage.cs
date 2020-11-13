@@ -86,21 +86,20 @@ public class Mage : Enemy
     void Attack()
     {
         Debug.Log(timer);
-
+        GameObject inst = null;
         timer = Time.time + coolDown;
         if(i == 0)
             am.PlayOnce(audioSource, attacking);
 
-        for (int i = 0; i < 100; i++)
-        {
-            rb.velocity = Vector2.zero;
-            Vector2 dir = player.transform.position - transform.position;
-            dir.y += Random.Range(-5, 5);
-            dir.x += Random.Range(-5, 5);
-            GameObject inst = Instantiate(energyball, transform.position - transform.forward, Quaternion.identity);
-            inst.GetComponent<Rigidbody2D>().AddForce(dir * projectileSpeed, ForceMode2D.Impulse);
-            Destroy(inst, 5);
-        }
+        //Spawning objects and accessing pooling manager
+        if (i < ObjectPooling.inst.amount)
+            for (int i = 0; i < 100; i++)
+            {
+                inst = Instantiate(energyball, transform.position - transform.forward, Quaternion.identity);
+                BallDirection(inst);
+            }
+        else
+            BallDirection(ObjectPooling.inst.RemoveObject());
 
         anim.SetBool("canAttack", false);
     }
@@ -123,5 +122,16 @@ public class Mage : Enemy
     public override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
+    }
+
+    //Setting direction of the energy ball
+    void BallDirection(GameObject ball)
+    {
+        rb.velocity = Vector2.zero;
+        Vector2 dir = player.transform.position - transform.position;
+        dir.y += Random.Range(-5, 5);
+        dir.x += Random.Range(-5, 5);
+        ball.GetComponent<Rigidbody2D>().AddForce(dir * projectileSpeed, ForceMode2D.Impulse);
+        //unenabled object afte set amount of time and add to queue
     }
 }
