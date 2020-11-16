@@ -21,7 +21,7 @@ public class Climbing : MonoBehaviour
     {
         float y = Input.GetAxis("Vertical");
 
-        if (canClimb && Input.GetKeyDown(KeyCode.W))
+        if (canClimb && Input.GetKey(KeyCode.W) || canClimb && Input.GetKey(KeyCode.S))
             climbing = true;
         else if (!canClimb)
             climbing = false;
@@ -51,7 +51,10 @@ public class Climbing : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag.Contains("Climable"))
+        {
             canClimb = true;
+            RBFreezeConstraints();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
