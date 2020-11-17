@@ -6,6 +6,8 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField]
     GameObject pauseMenu;
+    [SerializeField]
+    Canvas canvas;
 
     Weapon weapon;
     WeaponSwitching ws;
@@ -27,7 +29,6 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0;
             weapon = FindObjectOfType<Weapon>();
             weapon.maxDist = 50;
-            
         }
 
         if(ws.paused)
