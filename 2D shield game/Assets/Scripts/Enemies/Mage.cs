@@ -16,9 +16,7 @@ public class Mage : Enemy
     LayerMask layer;
 
     GameObject player;
-    bool runAction;
     int i;
-    bool isStunned;
     float amount;
 
     // Start is called before the first frame update

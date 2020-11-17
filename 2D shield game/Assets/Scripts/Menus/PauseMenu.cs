@@ -6,8 +6,6 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField]
     GameObject pauseMenu;
-    [SerializeField]
-    Canvas canvas;
 
     Weapon weapon;
     WeaponSwitching ws;

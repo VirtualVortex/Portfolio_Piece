@@ -6,11 +6,7 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     [SerializeField]
-    float maxHealth;
-    [SerializeField]
-    float delay;
-    [SerializeField]
-    float currentHealth;
+    float maxHealth, currentHealth, delay;
     [SerializeField]
     bool useUI;
     [SerializeField]
@@ -20,12 +16,10 @@ public class Health : MonoBehaviour
 
     SpriteRenderer sr;
     SceneChanger sc;
-    bool canDamage;
-    float timer;
+    bool canDamage, runOnce;
+    float timer, x;
     Color color;
-    float x;
     Vector3 startPos;
-    bool runOnce;
 
     // Start is called before the first frame update
     void Start()

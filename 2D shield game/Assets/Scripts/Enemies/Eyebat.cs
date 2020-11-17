@@ -8,8 +8,6 @@ public class Eyebat : Enemy
     ParticleSystem ps;
 
     GameObject player;
-    bool runAction;
-    bool isStunned;
 
     // Start is called before the first frame update
     public override void Start()

@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed;
-    public float coolDown;
+    public float speed, coolDown;
 
     [Header("Audio")]
-    public AudioClip idle;
-    public AudioClip attacking;
+    public AudioClip idle, attacking;
 
     [HideInInspector]
     public enum States {Idle, Attack, Stunned};
@@ -27,6 +25,8 @@ public class Enemy : MonoBehaviour
     public AudioManager am;
     [HideInInspector]
     public AudioSource audioSource;
+    [HideInInspector]
+    public bool runAction, isStunned;
     // Start is called before the first frame update
     public virtual void Start()
     {
