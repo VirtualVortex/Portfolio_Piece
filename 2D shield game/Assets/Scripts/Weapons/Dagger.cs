@@ -22,6 +22,7 @@ public class Dagger : Weapon
 
     public override void OnTriggerEnter2D(Collider2D other)
     {
+        //Deal damage
         if (other.tag.Contains("Enemy"))
             other.GetComponent<Health>().ReduceHealth(damage);
     }

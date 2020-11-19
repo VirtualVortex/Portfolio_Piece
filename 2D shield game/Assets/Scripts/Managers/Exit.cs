@@ -19,6 +19,7 @@ public class Exit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Change scene when colliding with it
         if (collision.name.Contains("Player"))
             sc.ChangeScene(scene);
     }

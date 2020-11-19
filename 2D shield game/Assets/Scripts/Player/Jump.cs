@@ -18,6 +18,7 @@ public class Jump : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up);
         
+        //Jump when close to the ground
         if (Input.GetKeyDown(KeyCode.Space) && hit.distance < 0.6f)
             master.rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
