@@ -25,10 +25,10 @@ public class MasterClass : MonoBehaviour
     private void Awake()
     {
         inst = this;
-
         SetUp();
     }
     
+    //Set up properties
     void SetUp()
     {
         player = GameObject.Find("Player");

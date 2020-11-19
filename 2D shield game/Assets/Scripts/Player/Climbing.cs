@@ -19,8 +19,7 @@ public class Climbing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float y = Input.GetAxis("Vertical");
-
+        //Start climbing when pressing either button.
         if (canClimb && Input.GetKey(KeyCode.W) || canClimb && Input.GetKey(KeyCode.S))
             climbing = true;
         else if (!canClimb)

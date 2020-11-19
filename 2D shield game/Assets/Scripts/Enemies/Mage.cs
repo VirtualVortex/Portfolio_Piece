@@ -44,17 +44,16 @@ public class Mage : Enemy
         RaycastHit2D hit = Physics2D.Raycast(raycastPos.position, -raycastPos.up);
         RaycastHit2D groundDetection = Physics2D.Raycast(transform.position, -raycastPos.up, Mathf.Infinity, layer);
 
-
+        //Rotate when detecting edge
         if (hit.distance > 5 && groundDetection.distance < 5)
             if (transform.eulerAngles.y == 0)
                 transform.rotation = Quaternion.Euler(0, 180, 0);
             else if (transform.eulerAngles.y == 180)
                 transform.rotation = Quaternion.Euler(0, 0, 0);
 
+        //Stop moving when falling
         if (groundDetection.distance > 5)
-        {
             rb.velocity = -transform.up;
-        }
 
         if (isStunned && Time.time > timer)
             behvaiour(States.Stunned);

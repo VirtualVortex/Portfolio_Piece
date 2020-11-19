@@ -17,20 +17,9 @@ public class Shield : Weapon
         movement();
     }
 
-    /*private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.tag.Contains("Enemy"))
-        {
-            Vector2 inDirection = collision.transform.GetComponent<Rigidbody2D>().velocity;
-            Vector2 inNormal = (inDirection - collision.contacts[0].point).normalized;
-            
-            collision.transform.position = Vector2.Reflect(inDirection, inNormal);
-        }
-    }*/
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        //Add object to pool queue
         if (collision.transform.tag.Contains("Damage"))
         {
             ObjectPooling.inst.AddObject(collision.gameObject);

@@ -33,6 +33,7 @@ public class Weapon : MonoBehaviour
         mousePos.z = -1;
         float dist = Vector2.Distance(mousePos, player.transform.position);
 
+        //Set position of weapon
         if (dist > maxDist)
         {
             Vector3 fromOriginToObject = mousePos - player.transform.position;

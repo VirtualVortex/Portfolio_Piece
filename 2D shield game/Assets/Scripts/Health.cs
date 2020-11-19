@@ -47,6 +47,7 @@ public class Health : MonoBehaviour
         if (Time.time > timer)
             canDamage = true;
 
+        //Change scene when player dies
         if (currentHealth <= 0 && transform.name.Contains("Player"))
         {
             sc.GoToBegining();
@@ -54,6 +55,7 @@ public class Health : MonoBehaviour
             CameraControls.inst.SetUp();
         }
 
+        //Destroy enemy object when died
         if (currentHealth <= 0 && !transform.name.Contains("Player"))
         {
             if (!runOnce)
@@ -66,6 +68,7 @@ public class Health : MonoBehaviour
             Destroy(gameObject, 0.5f);
         }
 
+        //Change health bar scale
         if (useUI)
         {
             x = Mathf.InverseLerp(0, maxHealth, currentHealth);
@@ -74,6 +77,7 @@ public class Health : MonoBehaviour
         
     }
 
+    //Deal set amount of damage
     public void ReduceHealth(float damage)
     {
         if (canDamage)
@@ -87,6 +91,7 @@ public class Health : MonoBehaviour
         }
     }
 
+    //Damage indicator
     IEnumerator Fade()
     {
         color.a = 0.5f;

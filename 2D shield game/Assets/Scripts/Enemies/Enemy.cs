@@ -69,6 +69,7 @@ public class Enemy : MonoBehaviour
         rb.velocity = Vector2.zero;
     }
 
+    //Stun when colliding with shield
     public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag.Contains("Shield"))

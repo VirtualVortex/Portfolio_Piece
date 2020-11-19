@@ -47,6 +47,7 @@ public class Gun : Weapon
     //Move like other weapons while rotating away from the player
     public override void movement()
     {
+        //reduce health when hit
         base.movement();
         Vector3 dir = transform.position - player.transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;

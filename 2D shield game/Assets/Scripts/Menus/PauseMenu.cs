@@ -20,6 +20,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //enable menu
         if (Input.GetKeyDown(KeyCode.Escape) && !pauseMenu.activeSelf)
         {
             pauseMenu.SetActive(true);
@@ -29,12 +30,14 @@ public class PauseMenu : MonoBehaviour
             weapon.maxDist = 50;
         }
 
+        //Constatnly set player weapon to clicker
         if(ws.paused)
             ws.EnableClicker();
     }
 
     public void QuitGame() => Application.Quit();
 
+    //disable menu
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
