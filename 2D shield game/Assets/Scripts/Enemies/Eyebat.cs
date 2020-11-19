@@ -8,12 +8,14 @@ public class Eyebat : Enemy
     ParticleSystem ps;
 
     GameObject player;
+    SpriteRenderer sr;
 
     // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
         player = GameObject.Find("Player");
+        sr = GetComponent<SpriteRenderer>();
         //timer = Time.time + coolDown;
 
     }
@@ -27,6 +29,8 @@ public class Eyebat : Enemy
             behvaiour(States.Attack);
         else if (Time.time < timer && !isStunned)
             behvaiour(States.Idle);
+
+        FlipSprite();
     }
 
     //Switch between different behaviours
@@ -73,6 +77,16 @@ public class Eyebat : Enemy
         isStunned = true;
         ps.Play();
         base.Stunned();
+    }
+
+    void FlipSprite()
+    {
+        Vector3 dir = player.transform.position - transform.position;
+
+        if (dir.normalized.x > 0)
+            sr.flipX = true;
+        else if (dir.normalized.x < 0)
+            sr.flipX = false;
     }
 
     public override void OnTriggerEnter2D(Collider2D collision)
