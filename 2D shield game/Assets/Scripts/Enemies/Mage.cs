@@ -52,7 +52,7 @@ public class Mage : Enemy
                 transform.rotation = Quaternion.Euler(0, 0, 0);
 
         //Stop moving when falling
-        if (groundDetection.distance > 1)
+        if (groundDetection.distance > 2)
         {
             rb.velocity = -transform.up;
             rb.constraints = RigidbodyConstraints2D.FreezePositionX;
