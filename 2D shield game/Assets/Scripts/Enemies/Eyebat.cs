@@ -9,6 +9,7 @@ public class Eyebat : Enemy
 
     GameObject player;
     SpriteRenderer sr;
+    DealDamage dd;
 
     // Start is called before the first frame update
     public override void Start()
@@ -16,8 +17,7 @@ public class Eyebat : Enemy
         base.Start();
         player = GameObject.Find("Player");
         sr = GetComponent<SpriteRenderer>();
-        //timer = Time.time + coolDown;
-
+        dd = GetComponent<DealDamage>();
     }
 
     // Update is called once per frame
@@ -58,6 +58,7 @@ public class Eyebat : Enemy
     public override void Idle()
     {
         anim.SetBool("canAttack", false);
+        dd.enabled = false;
     }
 
     //Move in direction of player
@@ -68,6 +69,7 @@ public class Eyebat : Enemy
         am.PlayOnce(audioSource, attacking);
         timer = Time.time + coolDown;
         anim.SetBool("canAttack", false);
+        dd.enabled = true;
     }
 
     //Play stunned animation and vfx
@@ -76,6 +78,7 @@ public class Eyebat : Enemy
         timer += coolDown;
         isStunned = true;
         ps.Play();
+        dd.enabled = false;
         base.Stunned();
     }
 

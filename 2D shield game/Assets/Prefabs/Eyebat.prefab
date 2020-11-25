@@ -9637,8 +9637,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 4
-  delay: 0
   currentHealth: 0
+  delay: 0
   useUI: 0
   healthBar: {fileID: 0}
   ps: {fileID: 5138728906329356450}
@@ -9691,13 +9691,15 @@ MonoBehaviour:
   speed: 0.5
   coolDown: 3
   idle: {fileID: 8300000, guid: b991a2d762903f8469f011c0733e1d37, type: 3}
-  attacking: {fileID: 8300000, guid: 1e2c312a91c04b541bc8c7a069a37369, type: 3}
+  attacking: {fileID: 8300000, guid: a90ce0971ccb6574b849c071bc89801a, type: 3}
   states: 0
   rb: {fileID: 0}
   anim: {fileID: 0}
   timer: 0
   am: {fileID: 0}
   audioSource: {fileID: 0}
+  runAction: 0
+  isStunned: 0
   ps: {fileID: 3597377710559767982}
 --- !u!95 &587931093
 Animator:

@@ -52,8 +52,11 @@ public class Mage : Enemy
                 transform.rotation = Quaternion.Euler(0, 0, 0);
 
         //Stop moving when falling
-        if (groundDetection.distance > 5)
+        if (groundDetection.distance > 1)
+        {
             rb.velocity = -transform.up;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+        }
 
         if (isStunned && Time.time > timer)
             behvaiour(States.Stunned);
@@ -70,6 +73,7 @@ public class Mage : Enemy
                 break;
             case States.Attack:
                 anim.SetBool("canAttack", true);
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                 break;
             case States.Stunned:
                 Stunned();
@@ -109,6 +113,7 @@ public class Mage : Enemy
     //Move the entity from left to right
     public override void Move()
     {
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         anim.SetBool("canAttack", false);
         rb.velocity = transform.right;
     }
