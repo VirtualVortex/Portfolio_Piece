@@ -36,9 +36,9 @@ public class Weapon : MonoBehaviour
         //Set position of weapon
         if (dist > maxDist)
         {
-            Vector3 fromOriginToObject = mousePos - player.transform.position;
-            fromOriginToObject *= maxDist / dist;
-            transform.position = player.transform.position + fromOriginToObject;
+            Vector3 dir = mousePos - player.transform.position;
+            dir *= maxDist / dist;
+            transform.position = player.transform.position + dir;
         }
         else 
             transform.position = mousePos;
