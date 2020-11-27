@@ -34,7 +34,7 @@ public class WeaponSwitching : MonoBehaviour
         lr.SetPosition(1, weapons[(int)i].transform.position);
 
         float scrollData = Input.mouseScrollDelta.y * sensitivty;
-        if (scrollData != 0.0f && !paused)
+        if (scrollData != 0.0f && !paused && weapons.Length > 1)
             WeaponPicker(scrollData);
     }
 
