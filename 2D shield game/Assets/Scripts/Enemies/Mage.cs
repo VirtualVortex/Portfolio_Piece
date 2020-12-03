@@ -105,8 +105,6 @@ public class Mage : Enemy
                 BallDirection(ObjectPooling.inst.RemoveObject());
         }
         
-            
-
         anim.SetBool("canAttack", false);
     }
     
@@ -125,12 +123,7 @@ public class Mage : Enemy
         ps.Play();
         base.Stunned();
     }
-
-    public override void OnTriggerEnter2D(Collider2D collision)
-    {
-        base.OnTriggerEnter2D(collision);
-    }
-
+    
     //Setting direction of the energy ball
     void BallDirection(GameObject ball)
     {

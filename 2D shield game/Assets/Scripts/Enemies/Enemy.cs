@@ -73,8 +73,12 @@ public class Enemy : MonoBehaviour
     public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag.Contains("Shield"))
-        {
             behvaiour(States.Stunned);
-        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag.Contains("Cage"))
+            Destroy(gameObject);
     }
 }

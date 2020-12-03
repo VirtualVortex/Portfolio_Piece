@@ -8,6 +8,9 @@ TagManager:
   - Enemy
   - Damage
   - Shield
+  - Cage
+  - Freeeze
+  - Freeze
   layers:
   - Default
   - TransparentFX

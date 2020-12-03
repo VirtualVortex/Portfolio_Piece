@@ -91,9 +91,4 @@ public class Eyebat : Enemy
         else if (dir.normalized.x < 0)
             sr.flipX = false;
     }
-
-    public override void OnTriggerEnter2D(Collider2D collision)
-    {
-        base.OnTriggerEnter2D(collision);
-    }
 }
