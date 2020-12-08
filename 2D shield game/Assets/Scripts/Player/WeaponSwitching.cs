@@ -38,6 +38,7 @@ public class WeaponSwitching : MonoBehaviour
             WeaponPicker(scrollData);
     }
 
+    //Enable the weapon that's been picked.
     public void WeaponPicker(float scrolldata)
     {
         i += scrolldata;
@@ -59,6 +60,7 @@ public class WeaponSwitching : MonoBehaviour
         
     }
 
+    //Only enable the clicker when called.
     public void EnableClicker()
     {
         for (int j = 0; j < weapons.Length; j++)
@@ -74,6 +76,7 @@ public class WeaponSwitching : MonoBehaviour
         }
     }
 
+    //Stop the clicker from being accessible
     public void UnenableClicker()
     {
         for (int j = 0; j < weapons.Length; j++)

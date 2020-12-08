@@ -82,6 +82,7 @@ public class Eyebat : Enemy
         base.Stunned();
     }
 
+    //Flip the sprite horizontally based on movement direction
     void FlipSprite()
     {
         Vector3 dir = player.transform.position - transform.position;

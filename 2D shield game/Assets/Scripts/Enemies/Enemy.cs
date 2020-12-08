@@ -76,6 +76,7 @@ public class Enemy : MonoBehaviour
             behvaiour(States.Stunned);
     }
 
+    //Destroy when colliding with the cage
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag.Contains("Cage"))
