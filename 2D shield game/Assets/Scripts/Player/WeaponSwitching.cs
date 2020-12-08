@@ -18,6 +18,8 @@ public class WeaponSwitching : MonoBehaviour
     [HideInInspector]
     public bool paused;
 
+    int clickerNum;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class WeaponSwitching : MonoBehaviour
         lr = GetComponent<LineRenderer>();
         master = MasterClass.inst;
         Cursor.visible = false;
+        clickerNum = weapons.Length - 1;
     }
 
     // Update is called once per frame
@@ -65,13 +68,13 @@ public class WeaponSwitching : MonoBehaviour
     {
         for (int j = 0; j < weapons.Length; j++)
         {
-            if (j == 3)
+            if (j == clickerNum)
             {
-                weapons[3].SetActive(true);
-                i = 3;
+                weapons[clickerNum].SetActive(true);
+                i = clickerNum;
             }
 
-            if (j != 3)
+            if (j != clickerNum)
                 weapons[j].SetActive(false);
         }
     }
@@ -81,10 +84,10 @@ public class WeaponSwitching : MonoBehaviour
     {
         for (int j = 0; j < weapons.Length; j++)
         {
-            if (j == 3)
+            if (j == clickerNum)
             {
-                weapons[3].SetActive(false);
-                i = 3;
+                weapons[clickerNum].SetActive(false);
+                i = clickerNum;
             }
         }
     }
