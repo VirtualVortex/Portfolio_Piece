@@ -26,13 +26,18 @@ public class PerkPotion : MonoBehaviour
             Destroy(gameObject, delay);
         }
     }
-    
+
+    private void Update()
+    {
+        if(player != null)
+            perkText.transform.position = player.transform.position + (player.transform.up * 1.5f);
+    }
+
     //Input data to specifc component.
     void RandomPerk()
     {
         int randomNum = Random.Range(0, 3);
         perkText.gameObject.SetActive(true);
-        perkText.transform.position = player.transform.position + (player.transform.up * 1.5f);
 
         //Access object even if it's disabled.
         switch (randomNum)
@@ -46,7 +51,7 @@ public class PerkPotion : MonoBehaviour
                 Gun gun = Resources.FindObjectsOfTypeAll<Gun>().First<Gun>();
                 gun.curAmmo++;
                 Debug.Log("Extra Ammo");
-                perkText.text = "Bullet +2";
+                perkText.text = "Bullet +1";
                 break;
             case 2:
                 Health health = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();

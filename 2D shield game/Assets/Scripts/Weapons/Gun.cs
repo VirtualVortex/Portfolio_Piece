@@ -41,6 +41,9 @@ public class Gun : Weapon
 
         if (Input.GetMouseButtonDown(0) && curAmmo > 0)
             Fire();
+
+        x = Mathf.InverseLerp(0, maxAmmo, curAmmo);
+        ammoBar.fillAmount = x;
     }
 
     //Move like other weapons while rotating away from the player
@@ -59,9 +62,6 @@ public class Gun : Weapon
         if(hit.transform.GetComponent<Health>())
             hit.transform.GetComponent<Health>().ReduceHealth(damage);
         curAmmo -= 1;
-
-        x = Mathf.InverseLerp(0, maxAmmo, curAmmo);
-        ammoBar.fillAmount = x;
     }
 
     void LaserPointer()
