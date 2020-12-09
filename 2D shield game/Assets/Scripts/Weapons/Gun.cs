@@ -61,6 +61,7 @@ public class Gun : Weapon
     {
         if(hit.transform.GetComponent<Health>())
             hit.transform.GetComponent<Health>().ReduceHealth(damage);
+
         curAmmo -= 1;
     }
 

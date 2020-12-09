@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 1688132959099631431}
   m_Layer: 5
   m_Name: AmmoBar
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -809,7 +809,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3861229558321807348
 RectTransform:
   m_ObjectHideFlags: 0

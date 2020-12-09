@@ -11,6 +11,7 @@ TagManager:
   - Cage
   - Freeeze
   - Freeze
+  - UI
   layers:
   - Default
   - TransparentFX
