@@ -86,7 +86,6 @@ public class Mage : Enemy
 
     void Attack()
     {
-        Debug.Log(timer);
         GameObject inst = null;
         timer = Time.time + coolDown;
         if(i == 0)

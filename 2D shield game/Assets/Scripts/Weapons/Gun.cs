@@ -10,11 +10,10 @@ public class Gun : Weapon
     [SerializeField]
     LayerMask layer;
 
-    public float damage;
+    public float damage, curAmmo;
 
     Image ammoBar;
     LineRenderer lr;
-    float curAmmo;
     RaycastHit2D hit;
     float x;
     

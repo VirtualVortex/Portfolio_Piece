@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField]
-    float maxHealth, currentHealth, delay;
+    public float maxHealth, currentHealth, delay;
     [SerializeField]
     bool useUI;
     [SerializeField]
