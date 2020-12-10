@@ -60,6 +60,8 @@ public class Mage : Enemy
 
         if (isStunned && Time.time > timer)
             behvaiour(States.Stunned);
+        else if (isStunned && Time.time < timer)
+            isStunned = false;
 
     }
 

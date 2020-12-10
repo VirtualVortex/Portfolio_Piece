@@ -32,6 +32,10 @@ public class SceneChanger : MonoBehaviour
 
     public void GoToBegining()
     {
-        SceneManager.LoadScene(2);
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+            SceneManager.LoadScene(1);
+        else
+            SceneManager.LoadScene(2);
+
     } 
 }
